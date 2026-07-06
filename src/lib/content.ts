@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { coachingManifest, type CoachingCategory, type CoachingQuiz } from '@content/coaching'
+import { siteConfig, type CoachingCategory, type CoachingQuiz } from '@config'
 
 import { fetchFormMeta, type PayloadFormMeta } from './payload'
 
@@ -15,19 +15,19 @@ export interface HydratedQuiz {
 }
 
 export function getCategories(): CoachingCategory[] {
-  return [...coachingManifest.categories].sort((a, b) => a.order - b.order)
+  return [...siteConfig.categories].sort((a, b) => a.order - b.order)
 }
 
 export function getCategory(slug: string): CoachingCategory | null {
-  return coachingManifest.categories.find((category) => category.slug === slug) ?? null
+  return siteConfig.categories.find((category) => category.slug === slug) ?? null
 }
 
 export function getQuizzes(): CoachingQuiz[] {
-  return [...coachingManifest.quizzes].sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+  return [...siteConfig.quizzes].sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
 }
 
 export function getQuiz(slug: string): CoachingQuiz | null {
-  return coachingManifest.quizzes.find((quiz) => quiz.slug === slug) ?? null
+  return siteConfig.quizzes.find((quiz) => quiz.slug === slug) ?? null
 }
 
 export function getQuizzesByCategory(categorySlug: string): CoachingQuiz[] {

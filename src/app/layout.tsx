@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { site } from '@config'
 
 import { SiteFooter, SiteHeader } from '@/components/SiteChrome'
 import { env } from '@/lib/env'
@@ -10,11 +11,10 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(env.siteUrl),
   title: {
-    default: 'RooQuiz Coaching — Free Coaching Quizzes & Assessments',
-    template: '%s | RooQuiz Coaching',
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s | ${site.name}`,
   },
-  description:
-    'Free coaching quizzes and assessments across life, career, business, wellness, and relationships. Take a quiz — or build your own with RooQuiz.',
+  description: site.description,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

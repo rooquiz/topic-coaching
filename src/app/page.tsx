@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { site } from '@config'
 
 import { CategoryGrid } from '@/components/CategoryGrid'
 import { CtaCreateYourOwn } from '@/components/CtaCreateYourOwn'
@@ -10,12 +11,11 @@ import { buildMetadata } from '@/lib/seo'
 export const revalidate = 3600
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Free Coaching Quizzes & Assessments',
-  description:
-    'Discover yourself with free coaching quizzes across life, career, business, wellness, and relationships — then build your own with RooQuiz.',
+  title: site.tagline,
+  description: site.description,
   path: '/',
-  ogTitle: 'RooQuiz Coaching',
-  ogSubtitle: 'Free coaching quizzes & assessments',
+  ogTitle: site.name,
+  ogSubtitle: site.tagline,
 })
 
 export default async function HomePage() {
@@ -28,12 +28,9 @@ export default async function HomePage() {
       <section className="bg-gradient-to-b from-primary/10 to-base-100">
         <div className="mx-auto max-w-5xl px-4 py-20 text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Coaching quizzes that help you <span className="text-primary">grow</span>
+            {site.hero.titleLead} <span className="text-primary">{site.hero.titleHighlight}</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-base-content/70">
-            Free, insightful assessments across life, career, business, wellness, and relationships. Take one in
-            minutes and get a personalized result.
-          </p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-base-content/70">{site.hero.subtitle}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="#featured" className="btn btn-primary">
               Browse quizzes

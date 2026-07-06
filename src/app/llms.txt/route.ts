@@ -1,3 +1,5 @@
+import { site } from '@config'
+
 import { env } from '@/lib/env'
 import { getCategories, getQuizzes } from '@/lib/content'
 import { absoluteUrl } from '@/lib/seo'
@@ -10,9 +12,9 @@ export function GET() {
   const quizzes = getQuizzes()
 
   const lines = [
-    '# RooQuiz Coaching',
+    `# ${site.name}`,
     '',
-    '> Free coaching quizzes and assessments across life, career, business, wellness, and relationships. Take a quiz to get a personalized result, or build your own with RooQuiz.',
+    `> ${site.description}`,
     '',
     '## Categories',
     ...categories.map((category) => `- [${category.name}](${absoluteUrl(`/c/${category.slug}`)}): ${category.description}`),
@@ -21,7 +23,7 @@ export function GET() {
     ...quizzes.map((quiz) => `- [${quiz.seo?.title ?? quiz.slug}](${absoluteUrl(`/q/${quiz.slug}`)})`),
     '',
     '## For coaches',
-    `- [Create your own coaching quiz](${env.signupUrl})`,
+    `- [${site.cta.footerLink}](${env.signupUrl})`,
     '',
   ]
 
