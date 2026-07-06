@@ -3,7 +3,8 @@ import type { MetadataRoute } from 'next'
 import { getCategories, getQuizzes } from '@/lib/content'
 import { absoluteUrl } from '@/lib/seo'
 
-export const revalidate = 3600
+// 静态导出：固化成 /sitemap.xml 静态文件。
+export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

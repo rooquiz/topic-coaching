@@ -4,7 +4,8 @@ import { env } from '@/lib/env'
 import { getCategories, getQuizzes } from '@/lib/content'
 import { absoluteUrl } from '@/lib/seo'
 
-export const revalidate = 3600
+// 静态导出：build 期固化成 /llms.txt 静态文件。
+export const dynamic = 'force-static'
 
 /** 面向 LLM / AI 搜索的站点摘要（对齐 cairo 的 llms.txt 惯例，英文） */
 export function GET() {

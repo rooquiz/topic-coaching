@@ -9,8 +9,6 @@ import { QuizGrid } from '@/components/QuizCard'
 import { getCategories, getCategory, getQuizzesByCategory, hydrateQuizzes } from '@/lib/content'
 import { breadcrumbJsonLd, buildMetadata } from '@/lib/seo'
 
-export const revalidate = 3600
-
 interface CategoryPageProps {
   params: Promise<{ category: string }>
 }
@@ -27,8 +25,6 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     title: category.title,
     description: category.description,
     path: `/c/${category.slug}`,
-    ogTitle: category.name,
-    ogSubtitle: 'Coaching quizzes',
   })
 }
 

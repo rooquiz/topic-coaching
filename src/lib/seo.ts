@@ -7,27 +7,20 @@ export function absoluteUrl(path: string): string {
   return new URL(path, env.siteUrl).toString()
 }
 
-/** 生成 OG 图地址（由 /api/og 动态渲染，参数驱动、无需网络数据） */
-export function ogImageUrl(params: { title: string; subtitle?: string }): string {
-  const url = new URL('/api/og', env.siteUrl)
-  url.searchParams.set('title', params.title)
-  if (params.subtitle) url.searchParams.set('subtitle', params.subtitle)
-  return url.toString()
-}
-
 interface PageMetaInput {
   title: string
   description: string
   /** 站内相对路径，用于 canonical */
   path: string
-  ogTitle?: string
-  ogSubtitle?: string
 }
 
-/** 统一构造页面 Metadata（title/description/canonical/OG/Twitter） */
+/**
+ * 统一构造页面 Metadata（title/description/canonical/OG/Twitter）。
+ * OG/Twitter 图不在此设置 —— 由各路由的 opengraph-image.tsx 文件约定在 build 期
+ * 生成静态 PNG 并自动注入 openGraph.images / twitter.images。
+ */
 export function buildMetadata(input: PageMetaInput): Metadata {
   const canonical = absoluteUrl(input.path)
-  const image = ogImageUrl({ title: input.ogTitle ?? input.title, subtitle: input.ogSubtitle })
   return {
     title: input.title,
     description: input.description,
@@ -38,13 +31,11 @@ export function buildMetadata(input: PageMetaInput): Metadata {
       url: canonical,
       siteName: 'RooQuiz Coaching',
       type: 'website',
-      images: [{ url: image, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
       title: input.title,
       description: input.description,
-      images: [image],
     },
   }
 }

@@ -1,20 +1,21 @@
 import { ImageResponse } from 'next/og'
 import { site } from '@config'
 
-import { env } from '@/lib/env'
+import { env } from './env'
 
-export const runtime = 'edge'
+/** OG 图尺寸 / MIME —— 供各 opengraph-image.tsx 直接 re-export */
+export const ogSize = { width: 1200, height: 630 } as const
+export const ogContentType = 'image/png'
 
 const SITE_HOST = new URL(env.siteUrl).host
 
 /**
- * 动态生成落地页 OG 图（1200×630）。
- * 纯参数驱动（title / subtitle），不依赖网络数据，便于任意页面复用。
+ * 渲染站点 OG 图（1200×630）。纯参数驱动（title / subtitle），不依赖网络数据。
+ * build 期由 opengraph-image.tsx 文件约定调用，输出静态 PNG（无需运行时 /api/og）。
  */
-export function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const title = (searchParams.get('title') ?? site.name).slice(0, 120)
-  const subtitle = (searchParams.get('subtitle') ?? site.tagline).slice(0, 120)
+export function renderOgImage(params: { title: string; subtitle?: string }): ImageResponse {
+  const title = params.title.slice(0, 120)
+  const subtitle = (params.subtitle ?? site.tagline).slice(0, 120)
 
   return new ImageResponse(
     (
@@ -40,6 +41,6 @@ export function GET(request: Request) {
         <div style={{ display: 'flex', fontSize: 28, color: '#059669', fontWeight: 600 }}>{SITE_HOST}</div>
       </div>
     ),
-    { width: 1200, height: 630 },
+    { ...ogSize },
   )
 }

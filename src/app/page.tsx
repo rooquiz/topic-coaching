@@ -8,14 +8,10 @@ import { QuizGrid } from '@/components/QuizCard'
 import { getCategories, getFeaturedQuizzes, hydrateQuizzes } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 
-export const revalidate = 3600
-
 export const metadata: Metadata = buildMetadata({
   title: site.tagline,
   description: site.description,
   path: '/',
-  ogTitle: site.name,
-  ogSubtitle: site.tagline,
 })
 
 export default async function HomePage() {

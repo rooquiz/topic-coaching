@@ -10,8 +10,6 @@ import { cairoOrigin, quizEmbedUrl, quizTakeUrl } from '@/lib/cairo'
 import { getCategory, getQuiz, getQuizzes, getQuizzesByCategory, hydrateQuiz, hydrateQuizzes } from '@/lib/content'
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd, quizJsonLd } from '@/lib/seo'
 
-export const revalidate = 3600
-
 interface QuizPageProps {
   params: Promise<{ slug: string }>
 }
@@ -29,7 +27,6 @@ export async function generateMetadata({ params }: QuizPageProps): Promise<Metad
     title: hydrated.title,
     description: hydrated.description || `Take the ${hydrated.title} coaching quiz — free and in minutes.`,
     path: `/q/${quiz.slug}`,
-    ogSubtitle: 'Free coaching quiz',
   })
 }
 
