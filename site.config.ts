@@ -190,66 +190,135 @@ const rawConfig: SiteConfig = {
     },
   ],
 
-  // TODO: 用真实测评的 publicToken 替换以下占位值（在 berlin 建卷后填入）。
-  // 占位 token 拉不到 Payload 数据时，落地页回退到这里的 seo 文案，站点仍可正常构建与浏览。
+  // 真实测评 publicToken（RooQuiz 团队，quizster.app/a/{token}）。
+  // 标题 / 描述 / 封面在 build 期由 Payload getPublicForm(publicToken) 拉取，
+  // 无需在此写 seo；需要覆盖时再补 seo.title / seo.description / seo.faq。
   quizzes: [
     {
-      publicToken: 'REPLACE_ME_life_direction',
-      slug: 'whats-your-life-direction',
+      publicToken: 'ssn6kdw6', // What's Your Self-Sabotage Pattern?
+      slug: 'self-sabotage-pattern',
       categorySlugs: ['life-coaching'],
       featured: true,
       order: 1,
-      seo: {
-        title: "What's Your Life Direction? — Free Life Coaching Quiz",
-        description: 'A 3-minute assessment to reveal how clear you are on your goals, values, and next steps in life.',
-        faq: [
-          { q: 'How long does the quiz take?', a: 'About 3 minutes — 10 quick questions.' },
-          { q: 'Is it free?', a: 'Yes, completely free. You get your personalized result at the end.' },
-        ],
-      },
     },
     {
-      publicToken: 'REPLACE_ME_career_path',
-      slug: 'find-your-ideal-career-path',
+      publicToken: '9gcn38sp', // What's Your Procrastination Type?
+      slug: 'procrastination-type',
+      categorySlugs: ['life-coaching'],
+      order: 2,
+    },
+    {
+      publicToken: '5e6w29n8', // What's Really Holding You Back? Limiting Beliefs Scorecard
+      slug: 'limiting-beliefs',
+      categorySlugs: ['life-coaching'],
+      order: 3,
+    },
+    {
+      publicToken: 'ehr7e6as', // How Confident Are You Really? Confidence Scorecard
+      slug: 'confidence-scorecard',
+      categorySlugs: ['life-coaching'],
+      order: 4,
+    },
+    {
+      publicToken: '9jp9tkkz', // What's Your Career Archetype?
+      slug: 'career-archetype',
       categorySlugs: ['career-coaching'],
       featured: true,
-      order: 2,
-      seo: {
-        title: 'Find Your Ideal Career Path — Free Career Coaching Quiz',
-        description:
-          'Discover which career directions fit your strengths and work style with this free career assessment.',
-      },
+      order: 5,
     },
     {
-      publicToken: 'REPLACE_ME_leadership_style',
-      slug: 'whats-your-leadership-style',
+      publicToken: 'hr845jez', // Is It Time for a Career Change? Readiness Scorecard
+      slug: 'career-change-readiness',
+      categorySlugs: ['career-coaching'],
+      order: 6,
+    },
+    {
+      publicToken: 'vdes5a8j', // What's Your Productivity Style?
+      slug: 'productivity-style',
+      categorySlugs: ['career-coaching'],
+      order: 7,
+    },
+    {
+      publicToken: '8dmhyvuu', // Discover Your Leadership Style
+      slug: 'leadership-style',
       categorySlugs: ['business-coaching'],
       featured: true,
-      order: 3,
-      seo: {
-        title: "What's Your Leadership Style? — Free Assessment",
-        description: 'Understand how you lead and where to grow with this free leadership-style assessment.',
-      },
+      order: 8,
     },
     {
-      publicToken: 'REPLACE_ME_stress_check',
-      slug: 'stress-and-energy-check',
+      publicToken: 'h2s7shhn', // How Strong Is Your Leadership? Leadership Scorecard
+      slug: 'leadership-scorecard',
+      categorySlugs: ['business-coaching'],
+      order: 9,
+    },
+    {
+      publicToken: '6asmj28d', // Is Your Business Ready to Scale? The Growth Readiness Scorecard
+      slug: 'business-scale-readiness',
+      categorySlugs: ['business-coaching'],
+      order: 10,
+    },
+    {
+      publicToken: 'au8agrwa', // Which Founder Archetype Are You?
+      slug: 'founder-archetype',
+      categorySlugs: ['business-coaching'],
+      featured: true,
+      order: 11,
+    },
+    {
+      publicToken: 'x594wcnf', // What's Your Selling Style?
+      slug: 'selling-style',
+      categorySlugs: ['business-coaching'],
+      order: 12,
+    },
+    {
+      publicToken: 'kv33pxut', // What's Your Stress Type?
+      slug: 'stress-type',
       categorySlugs: ['health-wellness-coaching'],
-      order: 4,
-      seo: {
-        title: 'Stress & Energy Check — Free Wellness Quiz',
-        description: 'A quick check-in on your stress levels and energy, with tips tailored to your result.',
-      },
+      featured: true,
+      order: 13,
     },
     {
-      publicToken: 'REPLACE_ME_communication_style',
-      slug: 'your-communication-style',
+      publicToken: '9jfaswcx', // Are You Burning Out? Burnout Risk Scorecard
+      slug: 'burnout-risk',
+      categorySlugs: ['health-wellness-coaching'],
+      order: 14,
+    },
+    {
+      publicToken: 'u7fsg6ek', // How Healthy Is Your Lifestyle? Wellness Scorecard
+      slug: 'wellness-scorecard',
+      categorySlugs: ['health-wellness-coaching'],
+      order: 15,
+    },
+    {
+      publicToken: 'dchgwe2b', // What's Your Fitness Personality?
+      slug: 'fitness-personality',
+      categorySlugs: ['health-wellness-coaching'],
+      order: 16,
+    },
+    {
+      publicToken: 'x8xgbenx', // What's Your Eating Personality?
+      slug: 'eating-personality',
+      categorySlugs: ['health-wellness-coaching'],
+      order: 17,
+    },
+    {
+      publicToken: 'dtvby4ca', // What's Your Attachment Style? How You Connect in Relationships
+      slug: 'attachment-style',
       categorySlugs: ['relationship-coaching'],
-      order: 5,
-      seo: {
-        title: 'Your Communication Style — Free Relationship Quiz',
-        description: 'Learn your default communication style and how it shapes your relationships.',
-      },
+      featured: true,
+      order: 18,
+    },
+    {
+      publicToken: 'sn97jbar', // What's Your Dating Pattern?
+      slug: 'dating-pattern',
+      categorySlugs: ['relationship-coaching'],
+      order: 19,
+    },
+    {
+      publicToken: 'zfxrszr6', // What's Your Parenting Style?
+      slug: 'parenting-style',
+      categorySlugs: ['relationship-coaching'],
+      order: 20,
     },
   ],
 }
