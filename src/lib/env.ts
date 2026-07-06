@@ -10,6 +10,6 @@ export const env = {
   cairoDomain: process.env.NEXT_PUBLIC_CAIRO_DOMAIN ?? 'https://quizster.app',
   /** 本站规范域名 */
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://coaching.rooquiz.com',
-  /** B 端转化：注册 RooQuiz 的目标地址 */
-  signupUrl: process.env.NEXT_PUBLIC_SIGNUP_URL ?? 'https://app.rooquiz.com/signup',
+  /** B 端转化 CTA 目标地址（RooQuiz 官网） */
+  signupUrl: process.env.NEXT_PUBLIC_SIGNUP_URL ?? 'https://rooquiz.com',
 } as const
