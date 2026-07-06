@@ -1,0 +1,27 @@
+# 落地页所需的测评「元数据」查询（不含题目/规则——作答完全由 cairo iframe 承接）。
+# 这是查询的规范来源；当前仓库仅消费这一条公开查询，其字符串集中在
+# src/lib/payload.ts 中使用。后续查询增多时可引入 graphql-codegen 从本文件生成类型。
+query GetPublicFormMeta($publicToken: String!, $language: String) {
+  getPublicForm(publicToken: $publicToken, language: $language) {
+    id
+    title
+    description
+    language
+    openGraph
+    flagImg {
+      url
+    }
+    tenant {
+      id
+      name
+      plan
+      link
+      logo {
+        url
+      }
+    }
+    personalized {
+      theme
+    }
+  }
+}

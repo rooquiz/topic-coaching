@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+/* DaisyUI v5：作为 Tailwind v4 插件引入，并启用亮/暗两套主题 */
+@plugin "daisyui" {
+  themes:
+    emerald --default,
+    dim --prefersdark;
+}
+
+/* 站点基础排版微调 */
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 落地页正文长文样式（测评介绍 / FAQ 等） */
+.prose-copy p {
+  margin-block: 0.75rem;
+  line-height: 1.75;
+}
