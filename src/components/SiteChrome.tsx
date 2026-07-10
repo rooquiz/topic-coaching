@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { site } from '@config'
 
 import { signupUrl } from '@/lib/cairo'
-import { getCategories } from '@/lib/content'
+import { getHubs } from '@/lib/content'
 
 export function SiteHeader() {
-  const categories = getCategories()
+  const categories = getHubs()
   return (
     <header className="sticky top-0 z-40 border-b border-base-300 bg-base-100/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
@@ -30,7 +30,7 @@ export function SiteHeader() {
 }
 
 export function SiteFooter() {
-  const categories = getCategories()
+  const categories = getHubs()
   return (
     <footer className="border-t border-base-300 bg-base-200">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-12 md:grid-cols-4">

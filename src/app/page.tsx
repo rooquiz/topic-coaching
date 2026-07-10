@@ -5,7 +5,7 @@ import { site } from '@config'
 import { CategoryGrid } from '@/components/CategoryGrid'
 import { CtaCreateYourOwn } from '@/components/CtaCreateYourOwn'
 import { QuizGrid } from '@/components/QuizCard'
-import { getCategories, getFeaturedQuizzes, hydrateQuizzes } from '@/lib/content'
+import { getFeaturedQuizzes, getHubs, hydrateQuizzes } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
@@ -15,7 +15,7 @@ export const metadata: Metadata = buildMetadata({
 })
 
 export default async function HomePage() {
-  const categories = getCategories()
+  const hubs = getHubs()
   const featured = await hydrateQuizzes(getFeaturedQuizzes())
 
   return (
@@ -50,7 +50,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="mb-2 text-2xl font-bold">Explore by topic</h2>
           <p className="mb-8 text-base-content/70">Find the coaching area that fits where you are right now.</p>
-          <CategoryGrid categories={categories} />
+          <CategoryGrid categories={hubs} />
         </div>
       </section>
 
@@ -59,7 +59,7 @@ export default async function HomePage() {
         <h2 className="mb-8 text-center text-2xl font-bold">How it works</h2>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           {[
-            { n: '1', t: 'Pick a quiz', d: 'Choose from coaching assessments across five topics.' },
+            { n: '1', t: 'Pick a quiz', d: 'Choose from coaching assessments grouped by topic.' },
             { n: '2', t: 'Answer honestly', d: 'Takes just a few minutes — no signup required to start.' },
             { n: '3', t: 'Get your result', d: 'See a personalized breakdown and what to do next.' },
           ].map((step) => (

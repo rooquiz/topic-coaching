@@ -38,8 +38,13 @@ const categorySchema = z.object({
   emoji: z.string().optional(),
   /** 分类落地页 hero 区文案（可选，默认用 description） */
   heroCopy: z.string().optional(),
-  /** 排序（小在前） */
+  /** 排序（小在前，仅在同层内比较：Hub 之间、或同一 Hub 的子分类之间） */
   order: z.number().int(),
+  /**
+   * 父级 Hub 的 slug。不填 = 顶层 Hub（支柱页）；填了 = 该 Hub 下的 niche（子分类页）。
+   * 层级最多两级（Hub → niche），parent 必须指向一个顶层分类。
+   */
+  parent: z.string().optional(),
 })
 
 const quizSchema = z.object({
@@ -140,7 +145,43 @@ const rawConfig: SiteConfig = {
     footerBlurb: 'Free coaching quizzes & assessments — and the platform to build your own.',
   },
 
+  // 两级分类：顶层 Hub（无 parent，支柱页）→ niche（子分类页）。
+  // 首页只展示 Hub；Hub 页聚合旗下所有 niche 的测评；niche 页展示自己的测评。
   categories: [
+    // ---- Hubs（顶层支柱页）----
+    {
+      slug: 'life-mindset-relationships',
+      name: 'Life, Mindset & Relationships',
+      title: 'Life, Mindset & Relationship Coaching Quizzes',
+      description:
+        'Free coaching quizzes for self-awareness, mindset, habits, and relationships — see where you are and what to work on next.',
+      emoji: '🧭',
+      heroCopy:
+        'The introspective core of coaching. Short, insightful assessments across life direction, mindset, and how you relate to others.',
+      order: 1,
+    },
+    {
+      slug: 'career-business-leadership',
+      name: 'Career, Business & Leadership',
+      title: 'Career, Business & Leadership Coaching Quizzes',
+      description:
+        'Free assessments for your career path, leadership style, and business readiness — built around real coaching frameworks.',
+      emoji: '🚀',
+      heroCopy: 'Figure out your next move at work — from career direction to leading a team to scaling a business.',
+      order: 2,
+    },
+    {
+      slug: 'health-body-fitness',
+      name: 'Health, Body & Fitness',
+      title: 'Health, Body & Fitness Coaching Quizzes',
+      description:
+        'Free wellness and fitness assessments — understand your energy, stress, eating, and habits, then start where you are.',
+      emoji: '🧘',
+      heroCopy: 'Small changes, big results — start by understanding your current baseline across stress, fitness, and nutrition.',
+      order: 3,
+    },
+
+    // ---- Niches（子分类页；保留原有 slug，SEO 不受影响）----
     {
       slug: 'life-coaching',
       name: 'Life Coaching',
@@ -150,6 +191,17 @@ const rawConfig: SiteConfig = {
       emoji: '🌱',
       heroCopy: 'Get unstuck. Short, insightful assessments that help you see where you are and where you want to go.',
       order: 1,
+      parent: 'life-mindset-relationships',
+    },
+    {
+      slug: 'relationship-coaching',
+      name: 'Relationship Coaching',
+      title: 'Relationship Coaching Quizzes',
+      description: 'Explore your communication style and relationship patterns with free relationship-coaching quizzes.',
+      emoji: '💬',
+      heroCopy: 'Better relationships start with self-awareness. Take a quiz to begin.',
+      order: 2,
+      parent: 'life-mindset-relationships',
     },
     {
       slug: 'career-coaching',
@@ -158,7 +210,8 @@ const rawConfig: SiteConfig = {
       description: 'Discover your strengths, work style, and ideal career path with free career-coaching assessments.',
       emoji: '🚀',
       heroCopy: 'Figure out your next career move with assessments built around real coaching frameworks.',
-      order: 2,
+      order: 1,
+      parent: 'career-business-leadership',
     },
     {
       slug: 'business-coaching',
@@ -168,7 +221,8 @@ const rawConfig: SiteConfig = {
         'Assess your leadership, growth blockers, and business readiness with free business-coaching quizzes.',
       emoji: '📈',
       heroCopy: 'Pinpoint what is holding your business back with quick, focused diagnostics.',
-      order: 3,
+      order: 2,
+      parent: 'career-business-leadership',
     },
     {
       slug: 'health-wellness-coaching',
@@ -177,16 +231,8 @@ const rawConfig: SiteConfig = {
       description: 'Understand your energy, stress, and habits with free wellness and health-coaching assessments.',
       emoji: '🧘',
       heroCopy: 'Small changes, big results — start by understanding your current baseline.',
-      order: 4,
-    },
-    {
-      slug: 'relationship-coaching',
-      name: 'Relationship Coaching',
-      title: 'Relationship Coaching Quizzes',
-      description: 'Explore your communication style and relationship patterns with free relationship-coaching quizzes.',
-      emoji: '💬',
-      heroCopy: 'Better relationships start with self-awareness. Take a quiz to begin.',
-      order: 5,
+      order: 1,
+      parent: 'health-body-fitness',
     },
   ],
 
@@ -334,6 +380,22 @@ function validateConfig(input: SiteConfig): SiteConfig {
   for (const category of parsed.categories) {
     if (seenCategory.has(category.slug)) throw new Error(`[site.config] 重复的分类 slug: ${category.slug}`)
     seenCategory.add(category.slug)
+  }
+
+  // 校验分类层级：parent 必须指向存在的顶层分类，且层级最多两级
+  const categoryBySlug = new Map(parsed.categories.map((category) => [category.slug, category]))
+  for (const category of parsed.categories) {
+    if (category.parent === undefined) continue
+    if (category.parent === category.slug) {
+      throw new Error(`[site.config] 分类 ${category.slug} 的 parent 不能指向自己`)
+    }
+    const parent = categoryBySlug.get(category.parent)
+    if (!parent) {
+      throw new Error(`[site.config] 分类 ${category.slug} 引用了不存在的 parent: ${category.parent}`)
+    }
+    if (parent.parent !== undefined) {
+      throw new Error(`[site.config] 分类层级最多两级：${category.slug} 的 parent「${parent.slug}」不是顶层 Hub`)
+    }
   }
 
   const seenQuiz = new Set<string>()
