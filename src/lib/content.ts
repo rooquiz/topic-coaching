@@ -22,24 +22,42 @@ export function getCategory(slug: string): CoachingCategory | null {
   return siteConfig.categories.find((category) => category.slug === slug) ?? null
 }
 
-/** 顶层 Hub（无 parent）——用于首页网格与导航 */
+/** 顶层 Hub（无 parent、非草稿）——用于首页网格与导航 */
 export function getHubs(): CoachingCategory[] {
-  return getCategories().filter((category) => !category.parent)
+  return getCategories().filter((category) => !category.parent && !category.draft)
 }
 
-/** 某个 Hub 下的子分类（niche），按 order 排序 */
-export function getChildCategories(parentSlug: string): CoachingCategory[] {
-  return getCategories().filter((category) => category.parent === parentSlug)
+/**
+ * 某个 Hub 下的子分类（niche），按 order 排序。
+ * 默认只返回已上线的（排除 draft，用于展示/内链）；
+ * includeDraft=true 时含草稿分类（用于测评汇总、判断是否 Hub）。
+ */
+export function getChildCategories(parentSlug: string, opts?: { includeDraft?: boolean }): CoachingCategory[] {
+  return getCategories().filter(
+    (category) => category.parent === parentSlug && (opts?.includeDraft || !category.draft),
+  )
 }
 
-/** 该分类是否为 Hub（拥有子分类） */
+/** 该分类是否为 Hub（拥有子分类，含草稿子分类） */
 export function isHub(category: CoachingCategory): boolean {
-  return getChildCategories(category.slug).length > 0
+  return getChildCategories(category.slug, { includeDraft: true }).length > 0
 }
 
 /** 分类所属的 Hub：niche → 其 parent；顶层分类 → null */
 export function getParentCategory(category: CoachingCategory): CoachingCategory | null {
   return category.parent ? getCategory(category.parent) : null
+}
+
+/**
+ * 测评在页面上应展示归属的「上线分类」：
+ * 主分类已上线 → 主分类本身；主分类是草稿（无独立页）→ 回退到其所属 Hub。
+ * 用于测评页面包屑与相关推荐，避免指向草稿分类的死链。
+ */
+export function getDisplayCategory(quiz: CoachingQuiz): CoachingCategory | null {
+  const primary = getCategory(quiz.categorySlugs[0])
+  if (!primary) return null
+  if (!primary.draft) return primary
+  return getParentCategory(primary) ?? primary
 }
 
 export function getQuizzes(): CoachingQuiz[] {
@@ -60,7 +78,10 @@ export function getQuizzesByCategory(categorySlug: string): CoachingQuiz[] {
  *  - hub：其所有子 niche 的测评并集（外加直接挂在 hub 上的兜底测评）
  */
 export function getQuizzesUnderCategory(category: CoachingCategory): CoachingQuiz[] {
-  const slugs = new Set<string>([category.slug, ...getChildCategories(category.slug).map((child) => child.slug)])
+  const slugs = new Set<string>([
+    category.slug,
+    ...getChildCategories(category.slug, { includeDraft: true }).map((child) => child.slug),
+  ])
   const seen = new Set<string>()
   const result: CoachingQuiz[] = []
   for (const quiz of getQuizzes()) {

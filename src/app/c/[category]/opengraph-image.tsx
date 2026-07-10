@@ -9,7 +9,9 @@ export const contentType = ogContentType
 
 /** 每个分类一张静态 OG 图 */
 export function generateStaticParams() {
-  return getCategories().map((category) => ({ category: category.slug }))
+  return getCategories()
+    .filter((category) => !category.draft)
+    .map((category) => ({ category: category.slug }))
 }
 
 export default async function Image({ params }: { params: Promise<{ category: string }> }) {

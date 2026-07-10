@@ -16,12 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   }
 
-  const categories: MetadataRoute.Sitemap = getCategories().map((category) => ({
-    url: absoluteUrl(`/c/${category.slug}`),
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }))
+  const categories: MetadataRoute.Sitemap = getCategories()
+    .filter((category) => !category.draft)
+    .map((category) => ({
+      url: absoluteUrl(`/c/${category.slug}`),
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }))
 
   const quizzes: MetadataRoute.Sitemap = getQuizzes().map((quiz) => ({
     url: absoluteUrl(`/q/${quiz.slug}`),

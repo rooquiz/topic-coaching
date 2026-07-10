@@ -7,7 +7,7 @@ import { JsonLd } from '@/components/JsonLd'
 import { QuizEmbed } from '@/components/QuizEmbed'
 import { QuizGrid } from '@/components/QuizCard'
 import { cairoOrigin, quizEmbedUrl, quizTakeUrl } from '@/lib/cairo'
-import { getCategory, getQuiz, getQuizzes, getQuizzesByCategory, hydrateQuiz, hydrateQuizzes } from '@/lib/content'
+import { getDisplayCategory, getQuiz, getQuizzes, getQuizzesUnderCategory, hydrateQuiz, hydrateQuizzes } from '@/lib/content'
 import { breadcrumbJsonLd, buildMetadata, faqJsonLd, quizJsonLd } from '@/lib/seo'
 
 interface QuizPageProps {
@@ -36,9 +36,9 @@ export default async function QuizPage({ params }: QuizPageProps) {
   if (!quiz) notFound()
 
   const hydrated = await hydrateQuiz(quiz)
-  const primaryCategorySlug = quiz.categorySlugs[0]
-  const primaryCategory = getCategory(primaryCategorySlug)
-  const related = (await hydrateQuizzes(getQuizzesByCategory(primaryCategorySlug)))
+  // 展示归属：草稿分类回退到其所属 Hub，避免面包屑/相关推荐指向没有页面的草稿分类
+  const primaryCategory = getDisplayCategory(quiz)
+  const related = (await hydrateQuizzes(primaryCategory ? getQuizzesUnderCategory(primaryCategory) : []))
     .filter((item) => item.quiz.slug !== quiz.slug)
     .slice(0, 3)
 

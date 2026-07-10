@@ -9,7 +9,7 @@ export const dynamic = 'force-static'
 
 /** 面向 LLM / AI 搜索的站点摘要（对齐 cairo 的 llms.txt 惯例，英文） */
 export function GET() {
-  const categories = getCategories()
+  const categories = getCategories().filter((category) => !category.draft)
   const quizzes = getQuizzes()
 
   const lines = [

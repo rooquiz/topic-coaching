@@ -23,7 +23,9 @@ interface CategoryPageProps {
 }
 
 export function generateStaticParams() {
-  return getCategories().map((category) => ({ category: category.slug }))
+  return getCategories()
+    .filter((category) => !category.draft)
+    .map((category) => ({ category: category.slug }))
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -40,7 +42,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category: slug } = await params
   const category = getCategory(slug)
-  if (!category) notFound()
+  if (!category || category.draft) notFound()
 
   const hub = isHub(category)
   const parent = getParentCategory(category)
