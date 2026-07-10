@@ -29,6 +29,14 @@ export const categorySchema = z.object({
   emoji: z.string().optional(),
   /** 分类落地页 hero 区文案（可选，默认用 description） */
   heroCopy: z.string().optional(),
+  /**
+   * GEO：分类落地页的长文正文（分段书写，每段一个字符串）。
+   * 渲染成可抓取的信息型内容——「什么是这类教练 / 适合谁 / 如何挑测评」，
+   * 正是答案引擎回答信息型问句时最爱引用的段落。
+   */
+  intro: z.array(z.string()).optional(),
+  /** GEO：分类级常见问答，渲染为 FAQ 折叠块 + FAQPage 结构化数据 */
+  faq: z.array(faqSchema).optional(),
   /** 排序（小在前，仅在同层内比较：Hub 之间、或同一 Hub 的子分类之间） */
   order: z.number().int(),
   /**
@@ -63,6 +71,23 @@ export const quizInFileSchema = z.object({
     .object({
       title: z.string().optional(),
       description: z.string().optional(),
+      /**
+       * GEO：2–3 句概述——这份测评测什么、能得到什么。
+       * 渲染为落地页的引导正文,供答案引擎(ChatGPT/Perplexity/AI Overviews)摘录引用。
+       */
+      overview: z.string().optional(),
+      /** GEO：适合谁(一句话画像),渲染为「Who it's for」正文 */
+      whoFor: z.string().optional(),
+      /** GEO：作答后你会了解到什么(要点列表),渲染为「What you'll learn」 */
+      whatYouLearn: z.array(z.string()).optional(),
+      /**
+       * GEO：代表性样题(纯文本)。把锁在跨域 iframe 里、爬虫读不到的题目
+       * 「露」成可抓取的页面正文,并生成 ItemList 结构化数据。
+       */
+      sampleQuestions: z.array(z.string()).optional(),
+      /** GEO：计分方式 / 方法论说明,渲染为「How it works」 */
+      howItWorks: z.string().optional(),
+      /** GEO：常见问答,渲染为 FAQ 折叠块 + FAQPage 结构化数据(答案引擎命中率最高的格式) */
       faq: z.array(faqSchema).optional(),
     })
     .optional(),

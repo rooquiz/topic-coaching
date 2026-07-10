@@ -12,9 +12,78 @@ export const lifeCoaching: CategoryFile = {
     heroCopy: 'Get unstuck. Short, insightful assessments that help you see where you are and where you want to go.',
     order: 1,
     parent: 'life-mindset-relationships',
+    intro: [
+      'Life coaching helps you close the gap between where you are and where you want to be. Rather than diagnosing problems, it focuses on clarity, direction, and momentum — your values, habits, mindset, and the concrete next step in front of you.',
+      'These free life-coaching quizzes are a fast way to start. Each one is a short self-assessment that turns a vague feeling of being stuck into something specific you can name and act on — whether that is a self-sabotage pattern, a procrastination style, a limiting belief, or a confidence gap.',
+      'Not sure where to begin? Pick the quiz that matches the feeling you have most often. If you keep starting things but stall, try the self-sabotage or procrastination quiz. If you talk yourself out of opportunities, start with limiting beliefs or the confidence scorecard. Each takes about five minutes, is free, and gives you a personalized result with a suggested next step.',
+    ],
+    faq: [
+      {
+        q: 'What is life coaching?',
+        a: 'Life coaching is a forward-looking, action-oriented process that helps you gain clarity on your goals, values, and habits and make progress toward the life you want. Unlike therapy, it focuses on the present and future rather than diagnosing or treating mental-health conditions.',
+      },
+      {
+        q: 'What can a life-coaching quiz tell me?',
+        a: 'A good life-coaching quiz turns a vague sense of being stuck into something specific — such as the pattern that most often derails your goals, your dominant procrastination style, or the beliefs quietly limiting you — along with a practical first step to work on.',
+      },
+      {
+        q: 'Are these life-coaching quizzes free?',
+        a: 'Yes. Every quiz on this page is free and takes about five minutes, with a personalized result and no signup required to start.',
+      },
+      {
+        q: 'Is a quiz a substitute for working with a coach?',
+        a: 'No. These quizzes are a starting point for self-reflection. They can help you focus, but working with a qualified coach adds accountability, personalized guidance, and support over time.',
+      },
+    ],
   },
   quizzes: [
-    { publicToken: 'ssn6kdw6', slug: 'self-sabotage-pattern', featured: true, order: 1 },
+    {
+      publicToken: 'ssn6kdw6',
+      slug: 'self-sabotage-pattern',
+      featured: true,
+      order: 1,
+      seo: {
+        title: 'Self-Sabotage Pattern Quiz — Find What Holds You Back',
+        description:
+          'A free 5-minute self-sabotage quiz that reveals the pattern quietly working against your goals — and the first step to break it.',
+        overview:
+          'Self-sabotage is the gap between what you say you want and what you repeatedly do. This free assessment maps your behavior against the most common self-sabotage patterns — procrastination, perfectionism, self-doubt, avoidance, and control — so you can name the one that costs you most and see what to do about it.',
+        whoFor:
+          'Anyone who keeps setting goals but stalls just before the finish line, feels stuck despite knowing what to do, or notices the same frustrating cycle repeat across work, health, or relationships.',
+        whatYouLearn: [
+          'Which of the five core self-sabotage patterns is most active for you right now',
+          'The hidden payoff that keeps the pattern in place',
+          'Where it tends to show up — work, relationships, health, or money',
+          'One concrete first step to interrupt the cycle this week',
+        ],
+        sampleQuestions: [
+          'When a goal starts going well, do you often find a reason to slow down or pull back?',
+          'How often do you wait until conditions are “perfect” before starting something important?',
+          'When you imagine finishing a big goal, what feels riskier — failing, or actually succeeding?',
+          'Do you tend to fill your schedule so full that the thing that matters most never gets done?',
+        ],
+        howItWorks:
+          'You answer a short set of statements about how you respond to goals, setbacks, and success. Your answers are scored across five self-sabotage patterns, and your result highlights the dominant one with a plain-language breakdown and a suggested next step. It takes about five minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What is a self-sabotage pattern?',
+            a: 'A self-sabotage pattern is a recurring, often unconscious behavior that undermines your own goals — such as procrastinating, over-perfecting, or backing off right when things start to work. The pattern usually protects you from a perceived risk (like failure or judgment), which is why it repeats.',
+          },
+          {
+            q: 'How long does the quiz take?',
+            a: 'About five minutes. There are no right or wrong answers — the more honestly you respond, the more accurate your result.',
+          },
+          {
+            q: 'Is the self-sabotage quiz free?',
+            a: 'Yes. The quiz and your personalized result are completely free, and you can start without creating an account.',
+          },
+          {
+            q: 'Is this a psychological diagnosis?',
+            a: 'No. It is a self-reflection and coaching tool, not a clinical or diagnostic assessment. If self-sabotage is seriously affecting your wellbeing, consider speaking with a licensed professional.',
+          },
+        ],
+      },
+    },
     { publicToken: '9gcn38sp', slug: 'procrastination-type', order: 2 },
     { publicToken: '5e6w29n8', slug: 'limiting-beliefs', order: 3 },
     { publicToken: 'ehr7e6as', slug: 'confidence-scorecard', order: 4 },

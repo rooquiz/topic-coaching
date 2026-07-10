@@ -16,7 +16,7 @@ import {
   hydrateQuizzes,
   isHub,
 } from '@/lib/content'
-import { breadcrumbJsonLd, buildMetadata } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, buildMetadata, faqJsonLd, itemListJsonLd } from '@/lib/seo'
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>
@@ -63,9 +63,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       : getHubs()
   const relatedHeading = !hub && siblings.length ? `More in ${parent?.name}` : 'Other coaching topics'
 
+  // GEO 正文：分类介绍长文 + 分类级 FAQ
+  const intro = category.intro ?? []
+  const catFaq = category.faq ?? []
+
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      {quizzes.length ? (
+        <JsonLd
+          data={itemListJsonLd(
+            `${category.name} quizzes`,
+            quizzes.map((item) => ({ name: item.title, url: absoluteUrl(item.href) })),
+          )}
+        />
+      ) : null}
+      {catFaq.length ? <JsonLd data={faqJsonLd(catFaq)} /> : null}
 
       <section className="bg-gradient-to-b from-primary/10 to-base-100">
         <div className="mx-auto max-w-5xl px-4 py-16">
@@ -89,6 +102,17 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
+      {/* GEO 正文：分类介绍长文（信息型内容，供答案引擎摘录） */}
+      {intro.length ? (
+        <section className="mx-auto max-w-3xl px-4 pt-14">
+          <div className="space-y-4 text-base-content/80">
+            {intro.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {/* Hub 页：先展示旗下分类，供用户下钻 */}
       {hub && children.length ? (
         <section className="mx-auto max-w-6xl px-4 pt-14">
@@ -106,6 +130,24 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <p className="text-base-content/60">No quizzes here yet — check back soon.</p>
         )}
       </section>
+
+      {/* GEO：分类级 FAQ（FAQPage 结构化数据已在顶部注入） */}
+      {catFaq.length ? (
+        <section className="mx-auto max-w-3xl px-4 py-14">
+          <h2 className="mb-5 text-2xl font-bold">Frequently asked questions</h2>
+          <div className="join join-vertical w-full">
+            {catFaq.map((entry, index) => (
+              <div key={index} className="collapse join-item collapse-arrow border border-base-300 bg-base-100">
+                <input type="checkbox" defaultChecked={index === 0} />
+                <div className="collapse-title font-medium">{entry.q}</div>
+                <div className="collapse-content text-base-content/70">
+                  <p>{entry.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-base-200">
         <div className="mx-auto max-w-6xl px-4 py-14">
