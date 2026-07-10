@@ -19,7 +19,68 @@ export const leadershipCoaching: CategoryFile = {
     draft: true,
   },
   quizzes: [
-    { publicToken: '8dmhyvuu', slug: 'leadership-style', featured: true, order: 8 },
-    { publicToken: 'h2s7shhn', slug: 'leadership-scorecard', order: 9 },
+    {
+      publicToken: '8dmhyvuu',
+      slug: 'leadership-style',
+      featured: true,
+      order: 8,
+      seo: {
+        overview:
+          'What kind of leader are you, really? This quick quiz reveals your leadership archetype — your core strengths, your blind spots, and how to lead more effectively by working with your natural style instead of against it.',
+        whoFor:
+          'New and experienced managers, team leads, and founders who want a clear read on how they lead and where to grow.',
+        whatYouLearn: [
+          'Your leadership archetype',
+          'The strengths you lead with',
+          'The blind spots that can trip you up',
+          'How to lead more effectively from your natural style',
+        ],
+        faq: [
+          {
+            q: 'What is a leadership style?',
+            a: 'A leadership style is your characteristic way of setting direction, making decisions, and working with people — for example, visionary, coaching, democratic, or commanding. Most effective leaders know their default and flex it to fit the situation.',
+          },
+          {
+            q: 'Is there a best leadership style?',
+            a: 'No single style is best in every situation. The most effective leaders understand their natural style, its blind spots, and when to adapt. This quiz helps you start with that self-awareness.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About two minutes, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
+      publicToken: 'h2s7shhn',
+      slug: 'leadership-scorecard',
+      order: 9,
+      seo: {
+        overview:
+          'Great leadership is a set of habits, not a personality. This 2-minute scorecard rates yours across vision, communication, empowering others, and decision-making, then shows your strongest and weakest pillar so you know exactly where to grow.',
+        whoFor:
+          'Leaders who want an honest, structured read on their effectiveness — and a specific area to work on next rather than vague feedback.',
+        whatYouLearn: [
+          'Your overall leadership score (a higher score means stronger leadership)',
+          'How you rate across vision, communication, empowering others, and decision-making',
+          'Your strongest pillar to lean on',
+          'Your weakest pillar to develop next',
+        ],
+        faq: [
+          {
+            q: 'Can leadership really be measured?',
+            a: 'You cannot capture everything in a quiz, but effective leadership does come down to observable habits — casting a clear vision, communicating well, empowering others, and making sound decisions. This scorecard rates those pillars to show where you are strong and where to grow.',
+          },
+          {
+            q: 'What does a higher score mean?',
+            a: 'A higher score means stronger leadership habits overall. The more useful output is the breakdown — your strongest and weakest pillar — which tells you where to focus.',
+          },
+          {
+            q: 'How long does the scorecard take, and is it free?',
+            a: 'About two minutes, and it is free with a personalized breakdown — no signup required to start.',
+          },
+        ],
+      },
+    },
   ],
 }
