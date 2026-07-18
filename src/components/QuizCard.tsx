@@ -7,7 +7,7 @@ export function QuizCard({ item }: { item: HydratedQuiz }) {
   return (
     <Link
       href={item.href}
-      className="card overflow-hidden border border-base-300 bg-base-100 transition hover:-translate-y-0.5 hover:shadow-md"
+      className="card overflow-hidden border border-base-300 bg-base-100 transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
     >
       <figure className="aspect-[16/9] bg-base-200">
         {item.coverUrl ? (

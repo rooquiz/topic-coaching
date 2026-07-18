@@ -127,7 +127,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         {quizzes.length ? (
           <QuizGrid items={quizzes} />
         ) : (
-          <p className="text-base-content/70">No quizzes here yet — check back soon.</p>
+          <div className="rounded-2xl border border-dashed border-base-300 bg-base-100 px-6 py-12 text-center">
+            <div className="mb-2 text-3xl" aria-hidden>
+              🧭
+            </div>
+            <p className="text-base-content/70">No quizzes here yet — check back soon.</p>
+          </div>
         )}
       </section>
 
