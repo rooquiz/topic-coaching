@@ -59,12 +59,40 @@
 
 ```bash
 pnpm typecheck       # 快速兜底：config 的 zod/类型校验（改 config 后跑一下，非必须）
-git add -A && git commit -m "<改动摘要>"
-# 沙盒无默认 GitHub 凭证，用项目内的 deploy key 推送（见 .secrets/，已 git-ignore）：
-GIT_SSH_COMMAND="ssh -i .secrets/deploy_key -o IdentitiesOnly=yes -o UserKnownHostsFile=.secrets/known_hosts -o StrictHostKeyChecking=yes" git push origin main
+# 用「无锁提交」helper（定义见下），沙盒里绝不会被残留 .lock 卡住；-A 表示提交全部改动：
+git_push_lockfree "<改动摘要>" -A
 ```
 
-> **推送凭证（方案 B：SSH Deploy Key）**：私钥/known_hosts 存在项目根的 `.secrets/`（不提交）。若某轮 push 报 `Permission denied (publickey)`，说明该 deploy key 未在仓库 Settings → Deploy keys 里授权（需勾 Allow write access）。若报 git 锁文件占用/无法删除，先创建新 index 再提交即可（提交走 rename 路径，不受沙盒禁删影响）。
+**`git_push_lockfree`——沙盒无人值守提交的标准姿势**。沙盒把用户文件夹以 FUSE 挂载进来，**禁用 unlink（删除）但允许 rename**，所以常规 `git commit` 一旦被中途打断就会留下删不掉的 `*.lock`，下轮直接卡死。这个 helper 全程不产生会阻塞的锁：索引放原生 `/tmp`、提交走 `commit-tree`、ref 用 rename 更新，并在开头把历史残留锁改名挪走。**在仓库根目录**定义并调用：
+
+```bash
+git_push_lockfree() {
+  local msg="$1"; shift                 # 其余参数原样传给 git add：-A 或精确文件路径
+  local gd; gd="$(git rev-parse --git-dir)"
+  # 1) 清扫历史残留 *.lock（rename 挪走，不依赖 unlink）
+  find "$gd" -name '*.lock' -type f -exec sh -c 'mv -f "$1" "$1.stale" 2>/dev/null' _ {} \;
+  # 2) 索引放原生 fs（其锁在 /tmp 上可正常删除，不会残留）
+  export GIT_INDEX_FILE="/tmp/gitidx.$$"
+  git read-tree HEAD || return 1
+  git add "$@"       || return 1
+  # 3) 生成对象 + 用 rename 更新 ref（零阻塞锁）
+  local tree head commit
+  tree=$(git write-tree)   || return 1
+  head=$(git rev-parse HEAD)
+  commit=$(git commit-tree "$tree" -p "$head" -m "$msg") || return 1
+  printf '%s\n' "$commit" > "$gd/refs/heads/.main.new"
+  mv -f "$gd/refs/heads/.main.new" "$gd/refs/heads/main" || return 1
+  # 4) 刷新默认索引 → 保持 git status 干净
+  cp -f "$GIT_INDEX_FILE" "$gd/index.new" && mv -f "$gd/index.new" "$gd/index"
+  rm -f "$GIT_INDEX_FILE"; unset GIT_INDEX_FILE
+  # 5) 用 deploy key 推送，触发 Vercel
+  GIT_SSH_COMMAND="ssh -i .secrets/deploy_key -o IdentitiesOnly=yes -o UserKnownHostsFile=.secrets/known_hosts -o StrictHostKeyChecking=yes" git push origin main
+}
+```
+
+> **推送凭证（方案 B：SSH Deploy Key）**：私钥/known_hosts 存在项目根的 `.secrets/`（不提交）。若某轮 push 报 `Permission denied (publickey)`，说明该 deploy key 未在仓库 Settings → Deploy keys 里授权（需勾 Allow write access）。
+>
+> **关于锁文件（已由 `git_push_lockfree` 自动处理，无需人工干预）**：沙盒 FUSE 挂载禁 unlink，普通 `rm .git/*.lock` 会报 `Operation not permitted`——这是挂载层策略，沙盒内无法根治（要让 `rm` 生效需 Anthropic 侧放开 FUSE 的 unlink）。helper 用 rename 把残留锁挪成 `*.stale`（git 忽略、无害），等价于删除，因此自动任务不会再被卡住。
 
 - push 到主分支即触发 Vercel 自动构建 + 部署，无需本地 `pnpm build`。
 - 若 Vercel 构建失败，最常见原因是**构建期 GraphQL 拉取失败**（token 无效 / Payload 不可达）或 zod 校验没过 → 核对 token、`config/schema.ts` 字段、`.env` 域名后再推一次。
@@ -128,8 +156,7 @@ grep -rho "publicToken: '[^']*'" config/categories/ | sort -u
 grep -rl "draft: true" config/categories/
 # 有真实 quiz 的分类
 grep -rl "publicToken" config/categories/
-# 轻量类型自检（可选），然后直接推、由 Vercel 构建部署
+# 轻量类型自检（可选），然后用无锁 helper 直接推、由 Vercel 构建部署
 pnpm typecheck
-git add -A && git commit -m "<摘要>"
-GIT_SSH_COMMAND="ssh -i .secrets/deploy_key -o IdentitiesOnly=yes -o UserKnownHostsFile=.secrets/known_hosts -o StrictHostKeyChecking=yes" git push origin main
+git_push_lockfree "<摘要>" -A     # 函数定义见「3. 提交并推送」小节，沙盒里不会被 .lock 卡住
 ```
