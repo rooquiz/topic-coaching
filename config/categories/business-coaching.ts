@@ -11,6 +11,29 @@ export const businessCoaching: CategoryFile = {
     heroCopy: 'Pinpoint what is holding your business back with quick, focused diagnostics.',
     order: 2,
     parent: 'career-business-leadership',
+    intro: [
+      'Business coaching helps founders and small-business owners work on the business, not just in it — diagnosing what is actually holding growth back and deciding where to focus limited time and money. Rather than generic advice, it starts from an honest read of your current fundamentals: your offer, your market, your systems, and your finances.',
+      'These free business-coaching quizzes are a quick way to get that diagnosis. Each turns a fuzzy worry — "are we ready to grow?", "why does everything depend on me?", "who exactly is my client?" — into something specific, from your growth readiness and founder archetype to your selling style and ideal-client clarity.',
+      'Not sure where to start? If you are weighing whether to scale, begin with the growth readiness scorecard. If you are still shaping your coaching or service practice, try the coaching niche or client discovery assessments. Each is free, takes a few minutes, and ends with a personalized result and a clear next step.',
+    ],
+    faq: [
+      {
+        q: 'What does a business coach do?',
+        a: 'A business coach helps you step back from daily operations to see the bigger picture — clarifying your goals, spotting the constraint holding growth back, and building a focused plan. The emphasis is on accountability and better decisions, not doing the work for you.',
+      },
+      {
+        q: 'What can a business-coaching quiz tell me?',
+        a: 'A good business quiz gives you a fast, structured diagnosis — such as which of your fundamentals would crack first under growth, your natural founder strengths and blind spots, or how clearly you have defined your ideal client — with a concrete area to work on next.',
+      },
+      {
+        q: 'Are these business-coaching quizzes free?',
+        a: 'Yes. Every quiz on this page is free, takes just a few minutes, and gives you a personalized result with no signup required to start.',
+      },
+      {
+        q: 'Is a quiz a substitute for working with a business coach?',
+        a: 'No. These quizzes are a starting point for focus and self-reflection. A qualified business coach adds ongoing accountability, tailored strategy, and an outside perspective over time.',
+      },
+    ],
   },
   quizzes: [
     {
@@ -103,6 +126,78 @@ export const businessCoaching: CategoryFile = {
           {
             q: 'How long does the quiz take, and is it free?',
             a: 'About two minutes, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
+      publicToken: 'vctf3j4u',
+      slug: 'coaching-niche',
+      order: 13,
+      seo: {
+        title: 'Coaching Niche Quiz — Find Your Profitable Specialty',
+        description:
+          'A free quiz that helps new and stuck coaches find a profitable coaching niche that fits their strengths, story, and the clients they are best placed to serve.',
+        overview:
+          'Trying to coach "everyone" is the fastest way to reach no one. This quiz helps you find the coaching niche where your strengths, experience, and the market overlap — so your message gets sharper, referrals get easier, and you can charge what your work is worth.',
+        whoFor:
+          'New coaches choosing a direction and established coaches who feel too generic, blend into a crowded market, or struggle to explain in one sentence who they help and how.',
+        whatYouLearn: [
+          'The coaching niche that best fits your strengths and background',
+          'Why a clear niche makes marketing and referrals far easier',
+          'The kinds of clients you are naturally positioned to serve',
+          'A first step to test and validate your niche',
+        ],
+        howItWorks:
+          'You answer a short set of questions about your strengths, experience, and the problems you most enjoy helping people solve. Your answers point to a niche direction with a plain-language explanation and a suggested next step. It takes about three minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'Why does a coaching niche matter?',
+            a: 'A defined niche makes your marketing specific and memorable, positions you as the obvious choice for a certain client, and typically supports higher fees than generalist coaching. It also makes referrals easier because people can describe exactly who you help.',
+          },
+          {
+            q: 'Will choosing a niche limit my income?',
+            a: 'Usually the opposite. Specializing tends to raise perceived expertise and pricing power, and you can still serve adjacent needs. A niche is a focus for your marketing, not a cage for your whole practice.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About three minutes, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
+      publicToken: 'r5espu34',
+      slug: 'coaching-client-discovery',
+      order: 14,
+      seo: {
+        title: 'Coaching Client Discovery Assessment — Know Your Ideal Client',
+        description:
+          'A free discovery assessment that helps coaches get clear on their ideal client, their real problems, and the message that turns strangers into booked calls.',
+        overview:
+          'You cannot sell coaching to a client you have not defined. This discovery assessment helps you get specific about who your ideal client is, the problems keeping them up at night, and the language that makes them feel understood — the foundation of an offer that actually converts.',
+        whoFor:
+          'Coaches building or refining their practice who want a sharper picture of their ideal client and a message that resonates enough to fill discovery calls.',
+        whatYouLearn: [
+          'A clearer profile of your ideal coaching client',
+          'The core problems and goals that drive them to seek a coach',
+          'Where your current positioning is vague or off-target',
+          'How to sharpen your message so the right clients self-select',
+        ],
+        howItWorks:
+          'You work through a structured set of prompts about the clients you serve best, their problems, and your positioning. Your responses surface where your client picture is clear and where it is fuzzy, with pointers to tighten it. It takes about five minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'Why is client discovery so important for coaches?',
+            a: 'Clarity on your ideal client shapes everything downstream — your offer, pricing, content, and sales conversations. When you deeply understand a specific client\'s problems, your marketing speaks directly to them and your discovery calls convert far more often.',
+          },
+          {
+            q: 'Is this the same as choosing a niche?',
+            a: 'They are related but distinct. A niche defines the space you work in; client discovery zooms in on the specific person in that space — their problems, language, and goals — so your message lands.',
+          },
+          {
+            q: 'How long does the assessment take, and is it free?',
+            a: 'About five minutes, and it is free with a personalized result — no signup required to start.',
           },
         ],
       },

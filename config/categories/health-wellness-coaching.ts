@@ -11,6 +11,29 @@ export const healthWellnessCoaching: CategoryFile = {
     heroCopy: 'Small changes, big results — start by understanding your current baseline.',
     order: 1,
     parent: 'health-body-fitness',
+    intro: [
+      'Health and wellness coaching helps you improve the everyday habits that shape how you feel — movement, nutrition, sleep, and stress — by starting from an honest baseline instead of an all-or-nothing overhaul. The focus is small, sustainable changes in the area that will pay off most, not willpower or perfection.',
+      'These free wellness quizzes are a quick way to find that starting point. Each turns a vague sense that "I should be healthier" into something specific — your overall wellness balance, the type of movement you will actually stick with, or the eating patterns quietly driving your choices.',
+      'Not sure where to begin? Start with the wellness scorecard for a whole-picture baseline, then dig into fitness or eating personality depending on what it surfaces. Each is free, takes about two minutes, and ends with a personalized result and one realistic next step.',
+    ],
+    faq: [
+      {
+        q: 'What does a health and wellness coach do?',
+        a: 'A wellness coach helps you set realistic health goals and build sustainable habits across movement, nutrition, sleep, and stress. The role is about behavior change and accountability — not diagnosing or treating medical conditions, which is a job for a licensed clinician.',
+      },
+      {
+        q: 'What can a wellness quiz tell me?',
+        a: 'A good wellness quiz gives you an honest baseline and a focus — such as which pillar of your wellbeing is dragging the rest down, the kind of movement most likely to stick for you, or the eating pattern behind your choices — along with one small change to try first.',
+      },
+      {
+        q: 'Are these wellness quizzes free?',
+        a: 'Yes. Every quiz on this page is free, takes about two minutes, and gives you a personalized result with no signup required to start.',
+      },
+      {
+        q: 'Are these quizzes medical advice?',
+        a: 'No. They are self-reflection and coaching tools for everyday habits, not medical assessments. If you have specific health concerns, consult a qualified healthcare professional.',
+      },
+    ],
   },
   quizzes: [
     {

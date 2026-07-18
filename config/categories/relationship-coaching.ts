@@ -12,6 +12,29 @@ export const relationshipCoaching: CategoryFile = {
     heroCopy: 'Better relationships start with self-awareness. Take a quiz to begin.',
     order: 2,
     parent: 'life-mindset-relationships',
+    intro: [
+      'Relationship coaching helps you understand the patterns you bring to your connections — how you communicate, handle conflict, build trust, and respond when you feel close or threatened. The aim is self-awareness you can act on, so you can show up in your relationships more intentionally rather than repeating the same cycles.',
+      'These free relationship quizzes are a quick way to start. Each turns a vague sense that "something keeps happening" into something specific — your attachment style, the health of your current relationship, or the dating pattern that keeps recurring.',
+      'A useful place to begin is attachment style, since it shapes so much of how we connect: research on adult attachment suggests roughly half of adults have a secure style, with the rest falling into anxious or avoidant patterns (source: Verywell Mind, https://www.verywellmind.com/attachment-styles-2795344). Each quiz is free, takes a few minutes, and ends with a personalized result and a next step.',
+    ],
+    faq: [
+      {
+        q: 'What does a relationship coach do?',
+        a: 'A relationship coach helps you build self-awareness and practical skills — communication, boundaries, conflict repair — so you can create healthier connections. It is forward-looking and skills-based, and differs from couples therapy, which can also treat deeper clinical or historical issues.',
+      },
+      {
+        q: 'What can a relationship quiz tell me?',
+        a: 'A good relationship quiz turns a recurring frustration into something specific — such as your attachment style, how healthy your current relationship is across key areas, or the dating pattern you keep repeating — along with a practical first step.',
+      },
+      {
+        q: 'Are these relationship quizzes free?',
+        a: 'Yes. Every quiz on this page is free, takes just a few minutes, and gives you a personalized result with no signup required to start.',
+      },
+      {
+        q: 'Can a quiz replace couples counseling?',
+        a: 'No. These quizzes are a starting point for reflection and better conversations. If a relationship is in serious distress, a qualified therapist or counselor can provide support a quiz cannot.',
+      },
+    ],
   },
   quizzes: [
     {

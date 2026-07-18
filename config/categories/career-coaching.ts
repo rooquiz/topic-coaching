@@ -11,6 +11,29 @@ export const careerCoaching: CategoryFile = {
     heroCopy: 'Figure out your next career move with assessments built around real coaching frameworks.',
     order: 1,
     parent: 'career-business-leadership',
+    intro: [
+      'Career coaching helps you make deliberate decisions about your working life — clarifying your strengths, work style, and direction so your next move is a choice rather than a reaction. Unlike a one-off piece of advice, it focuses on patterns: what energizes you, where you add the most value, and what a good next step actually looks like for you.',
+      'These free career-coaching quizzes are a fast way to get that clarity. Each is a short self-assessment that turns a vague feeling — stuck, restless, unsure whether to stay or go — into something specific you can act on, whether that is your career archetype, your readiness to change roles, your productivity style, or how prepared you are for your next interview.',
+      'Not sure where to start? If you are weighing a move, try the career-change readiness scorecard. If you have an interview coming up, start with the interview readiness scorecard. Each takes just a few minutes, is free, and ends with a personalized result and a suggested next step.',
+    ],
+    faq: [
+      {
+        q: 'What does a career coach do?',
+        a: 'A career coach helps you gain clarity on your strengths, values, and goals, then build a concrete plan for your next move — whether that is a promotion, a pivot, or a full career change. The focus is forward-looking and action-oriented rather than therapeutic.',
+      },
+      {
+        q: 'What can a career-coaching quiz tell me?',
+        a: 'A good career quiz turns a broad question like "what should I do next?" into something specific — your natural career archetype, whether you are genuinely ready to change roles, or the interview gap most likely to cost you an offer — along with a practical first step.',
+      },
+      {
+        q: 'Are these career-coaching quizzes free?',
+        a: 'Yes. Every quiz on this page is free, takes just a few minutes, and gives you a personalized result with no signup required to start.',
+      },
+      {
+        q: 'Is a quiz a substitute for working with a career coach?',
+        a: 'No. These quizzes are a starting point for reflection and focus. Working with a qualified career coach adds accountability, tailored guidance, and support over time.',
+      },
+    ],
   },
   quizzes: [
     {
@@ -146,6 +169,48 @@ export const careerCoaching: CategoryFile = {
           {
             q: 'How long does the quiz take, and is it free?',
             a: 'About two minutes, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
+      publicToken: 'rwmsuh5m',
+      slug: 'job-interview-readiness',
+      order: 8,
+      seo: {
+        title: 'Job Interview Readiness Scorecard — Are You Interview-Ready?',
+        description:
+          'A free 3-minute interview readiness scorecard that rates you across preparation, answers, presence, and follow-up — so you know exactly what to fix before your next interview.',
+        overview:
+          'Most interviews are won or lost before the offer stage — on preparation, storytelling, presence, and follow-up. This 12-question scorecard rates you across four areas that decide most interviews and gives you a score out of 120, so you walk in knowing your strengths and the gaps to close first.',
+        whoFor:
+          'Anyone with an interview coming up — whether you are actively job-hunting, returning to the market after time away, or want an honest read on how prepared you really are.',
+        whatYouLearn: [
+          'Your overall interview readiness score out of 120',
+          'How you rate across preparation & research, answers & storytelling, communication & presence, and closing & follow-up',
+          'The weakest area most likely to cost you the offer',
+          'Concrete next steps to walk in more confident',
+        ],
+        sampleQuestions: [
+          'How much do you research a company before the interview?',
+          'How do you answer "Tell me about yourself"?',
+          'How do you handle "What\'s your greatest weakness?"',
+          'Do you send a thank-you note after an interview?',
+        ],
+        howItWorks:
+          'You answer 12 questions about how you prepare for, perform in, and follow up after interviews. Your answers are scored across four areas and totaled into a readiness score out of 120, with a breakdown of where you are strong and where to focus. It takes about three minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What makes someone interview-ready?',
+            a: 'Interview readiness is more than a polished resume — it combines company research, structured answers backed by concrete examples, confident presence under pressure, and a strong close and follow-up. This scorecard rates all four so you can see which one is holding you back.',
+          },
+          {
+            q: 'How can I calm interview nerves?',
+            a: 'Nerves usually shrink with preparation. Rehearsing structured answers to common questions, researching the role, and using slow breathing before you walk in all help you stay clear and on point. The scorecard flags whether nerves are a top area to work on for you.',
+          },
+          {
+            q: 'How long does the scorecard take, and is it free?',
+            a: 'About three minutes for the 12 questions, and it is free with a personalized breakdown — no signup required to start.',
           },
         ],
       },
