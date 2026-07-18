@@ -129,5 +129,48 @@ export const healthWellnessCoaching: CategoryFile = {
         ],
       },
     },
+    {
+      publicToken: 'af8c5j4t',
+      slug: 'nutrition-iq',
+      order: 18,
+      alsoIn: ['nutrition-coaching'],
+      seo: {
+        title: 'Nutrition IQ Quiz — Test Your Healthy-Eating Smarts',
+        description:
+          'A free 10-question nutrition IQ quiz covering fats, vitamins, minerals, and common food myths. Get your score and the facts behind everyday healthy eating.',
+        overview:
+          'Think you eat pretty healthily? This 10-question nutrition quiz tests your grasp of the essentials — calories, fats, vitamins, minerals, hydration, and the food myths that trip most people up — then scores your Nutrition IQ and explains the fact behind every answer, no guilt attached.',
+        whoFor:
+          'Anyone curious about how much they really know about healthy eating — from beginners to wellness and nutrition coaches who want a quick, shareable knowledge check.',
+        whatYouLearn: [
+          'Your Nutrition IQ score',
+          'Which common nutrition myths you still believe',
+          'The basics of fats, vitamins, and minerals that matter most',
+          'Simple, evidence-based facts to eat a little smarter',
+        ],
+        sampleQuestions: [
+          'Which nutrient provides the most calories per gram?',
+          'Which type of fat is generally considered the least healthy?',
+          'Eating too much of which mineral is linked to high blood pressure?',
+          'Can frozen vegetables be as nutritious as fresh ones?',
+        ],
+        howItWorks:
+          'You answer 10 multiple-choice and true/false questions on calories, fats, vitamins, minerals, hydration, and common myths. Each answer is scored and explained, and your result gives your Nutrition IQ with the reasoning behind every fact. It takes about three minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'Is this nutrition quiz based on real science?',
+            a: 'Yes. The questions reflect widely accepted nutrition basics — for example, that fat provides about 9 calories per gram versus 4 for protein and carbohydrate, and that excess sodium is linked to higher blood pressure. It is educational, not personalized dietary advice.',
+          },
+          {
+            q: 'Can frozen vegetables really be as healthy as fresh?',
+            a: 'Often, yes. Vegetables are typically frozen soon after harvest at peak ripeness, which locks in nutrients, so frozen produce can match or even beat fresh that has spent days in transit and storage.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About three minutes for the 10 questions, and it is free with a score and explanations — no signup required to start.',
+          },
+        ],
+      },
+    },
   ],
 }

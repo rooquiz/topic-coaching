@@ -122,5 +122,48 @@ export const fitnessCoaching: CategoryFile = {
         ],
       },
     },
+    {
+      publicToken: 'acbrrbf4',
+      slug: 'runner-type',
+      order: 3,
+      alsoIn: ['running-coaching'],
+      seo: {
+        title: 'Runner Type Quiz — Discover Your Running Personality',
+        description:
+          'A free 8-question runner type quiz that reveals your running personality — Zen, Competitor, Social, Explorer, or Data-Driven — and how to train in a way that actually fits you.',
+        overview:
+          'Every runner laces up for a different reason, and knowing yours is what makes training stick. This 8-question quiz reveals your running personality across five types — Zen, Competitor, Social, Explorer, and Data-Driven — so you can train, race, and stay motivated in the way that fits how you are wired.',
+        whoFor:
+          'New and experienced runners, run clubs, and run coaches who want to understand what drives a runner and how to keep them consistent.',
+        whatYouLearn: [
+          'Your runner type: Zen, Competitor, Social, Explorer, or Data-Driven',
+          'What really motivates you to run',
+          'The kind of runs and goals you are most likely to stick with',
+          'What most often makes you skip a run — and how to plan around it',
+        ],
+        sampleQuestions: [
+          'Why do you lace up your running shoes?',
+          'Your ideal run looks like…',
+          'How do you feel about races?',
+          'Pick your running mantra.',
+        ],
+        howItWorks:
+          'You answer eight quick questions about why you run, your ideal run, and how you feel about races and tracking data. Your answers map to five running personalities, and your result names your dominant type with how to train and stay motivated. It takes about two minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What is a running personality?',
+            a: 'Your running personality is the mix of motivations and preferences behind how you run — whether you run to de-stress, to compete, to socialize, to explore, or to hit the numbers. Matching your training and goals to it makes running far easier to sustain.',
+          },
+          {
+            q: 'Can I be more than one runner type?',
+            a: 'Yes. Many runners blend types — a Competitor who also loves trail adventures, for example. The quiz highlights your dominant type while your result still reflects the mix.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About two minutes for the eight questions, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
   ],
 }

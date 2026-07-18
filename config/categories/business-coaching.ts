@@ -202,5 +202,90 @@ export const businessCoaching: CategoryFile = {
         ],
       },
     },
+    {
+      publicToken: 'd6pqmtwg',
+      slug: 'coaching-business-bottleneck',
+      featured: true,
+      order: 15,
+      seo: {
+        title: 'Coaching Business Bottleneck Quiz — What Is Holding Your Growth Back?',
+        description:
+          'A free 8-question quiz for coaches that pinpoints the #1 bottleneck capping your growth — visibility, conversion, offer, or delivery — with a clear direction to break through.',
+        overview:
+          'Most coaching businesses are held back by one constraint, not a dozen. This 8-question quiz diagnoses whether your biggest bottleneck is visibility (not enough people know you exist), conversion (interest that rarely books), offer (underpricing and price resistance), or delivery (maxed out on your own hours) — so you can fix the thing that actually moves the needle.',
+        whoFor:
+          'Coaches and solo service providers who feel stuck and want to know the single constraint to work on next instead of guessing.',
+        whatYouLearn: [
+          'Your primary growth bottleneck: visibility, conversion, offer, or delivery',
+          'Why your current effort may be aimed at the wrong constraint',
+          'The pattern showing up across your leads, calendar, and pricing',
+          'A focused direction to break through it',
+        ],
+        sampleQuestions: [
+          'When you picture your coaching business right now, what frustrates you most?',
+          'How do new clients usually find you today?',
+          'If a dream client asked “why should I work with YOU?”, you would…',
+          'Be honest about your pricing — what best describes it?',
+        ],
+        howItWorks:
+          'You answer eight quick questions about how clients find you, what your week looks like, and how your pricing feels. Your answers map to four common bottlenecks — visibility, conversion, offer, and delivery — and your result names the one capping your growth with a direction to fix it. It takes about two minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What is a business bottleneck?',
+            a: 'A bottleneck is the single constraint limiting your growth — the point where more effort stops producing more results. Fixing it unlocks the most progress, which is why identifying the right one matters more than simply working harder everywhere.',
+          },
+          {
+            q: 'What is the most common bottleneck for coaches?',
+            a: 'It varies by stage. Visibility and conversion tend to dominate early on, while more established coaches more often hit offer (pricing) and delivery (capacity) limits. This quiz identifies yours specifically rather than assuming.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About two minutes for the eight questions, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
+      publicToken: '3a72dw98',
+      slug: 'coaching-skills-quiz',
+      order: 16,
+      seo: {
+        title: 'Coaching Skills Quiz — How Effective a Coach Are You?',
+        description:
+          'A free 10-question coaching skills quiz for managers and team leads. Test your grasp of the GROW model, powerful questions, and active listening — and see exactly where to level up.',
+        overview:
+          'Great coaching is a learnable skill, not a personality trait. This 10-question quiz tests how well you apply the fundamentals that managers rely on — asking open, probing questions, listening more than you talk, using the GROW model, and knowing when to coach versus direct — then scores your coaching effectiveness and shows where to grow.',
+        whoFor:
+          'Managers, team leads, and anyone who develops people and wants an honest, structured read on their coaching skills.',
+        whatYouLearn: [
+          'Your overall coaching effectiveness score',
+          'How well you apply the GROW model in real conversations',
+          'The difference between coaching and directing or disciplining',
+          'Where your questioning and listening habits help or hurt',
+        ],
+        sampleQuestions: [
+          'In the widely used GROW coaching model, what do the letters stand for?',
+          'What kind of questions work best when you are coaching someone?',
+          'During a coaching conversation, how should a great coach balance talking and listening?',
+          'An employee comes to you stuck on a problem — what is the most coaching-oriented first move?',
+        ],
+        howItWorks:
+          'You answer 10 multiple-choice and true/false questions about real coaching situations — questioning, listening, the GROW framework, and when to coach versus discipline. Each correct answer adds to your score, and your result shows your coaching effectiveness with an explanation for every question. It takes about five minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What is the GROW coaching model?',
+            a: 'GROW is a widely used four-step framework — Goal, Reality, Options, and Will (the way forward) — that gives almost any coaching conversation a simple, repeatable structure, from setting the aim to committing to a next step.',
+          },
+          {
+            q: 'What is the difference between coaching and managing?',
+            a: 'Coaching helps a person figure out what to change through questions and reflection, while directing or disciplining tells them what to change. Effective managers use both, but treating them as the same thing is one of the most common management mistakes.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About five minutes for the 10 questions, and it is free with a score and per-question explanations — no signup required to start.',
+          },
+        ],
+      },
+    },
   ],
 }
