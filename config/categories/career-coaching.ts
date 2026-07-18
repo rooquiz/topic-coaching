@@ -14,6 +14,49 @@ export const careerCoaching: CategoryFile = {
   },
   quizzes: [
     {
+      publicToken: '8sq49p2w',
+      slug: 'ai-readiness',
+      featured: true,
+      order: 4,
+      seo: {
+        title: 'Are You AI-Ready? Test Your Workplace AI Skills',
+        description:
+          'A free quiz that tests your workplace AI skills and readiness — from prompting to judgment — so you can see where you stand and what to learn next.',
+        overview:
+          'AI is reshaping work faster than almost any skill shift before it. This quick quiz tests how ready you are to use AI on the job — from writing effective prompts to knowing when to trust or double-check its output — and shows exactly where to level up.',
+        whoFor:
+          'Any professional who wants to stay competitive as AI reshapes their field, whether you are already using AI tools daily or just starting to figure out where they fit into your work.',
+        whatYouLearn: [
+          'Your workplace AI readiness across practical skill areas',
+          'How confidently you can prompt, evaluate, and apply AI output',
+          'The gaps most worth closing for your role',
+          'A first step to build the AI skills employers now reward',
+        ],
+        sampleQuestions: [
+          'When an AI tool gives you a confident but wrong answer, how do you usually catch it?',
+          'How would you rewrite a vague prompt to get a more useful result?',
+          'Which tasks in your job are best suited to AI assistance today?',
+          'What is a responsible way to handle sensitive data when using AI tools?',
+        ],
+        howItWorks:
+          'You answer a set of scenario-based questions about using AI at work. Your answers are scored across core AI-readiness skills, and your result shows how prepared you are along with the areas to focus on. It takes about five minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'Why do workplace AI skills matter now?',
+            a: 'Demand is climbing fast: analyses in 2025 found employers require AI skills in roughly three times more job postings than two years earlier, and roles that call for AI skills command a meaningful wage premium. Building basic AI fluency is quickly becoming a core professional skill rather than a niche one.',
+          },
+          {
+            q: 'Do I need a technical background to be AI-ready?',
+            a: 'No. Most workplace AI readiness is about practical judgment — writing clear prompts, checking output, knowing which tasks to delegate to AI, and using it responsibly — not coding or building models.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About five minutes, and it is free with a personalized result — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
       publicToken: '9jp9tkkz',
       slug: 'career-archetype',
       featured: true,

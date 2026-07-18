@@ -15,6 +15,49 @@ export const relationshipCoaching: CategoryFile = {
   },
   quizzes: [
     {
+      publicToken: 'kvvv4txe',
+      slug: 'relationship-health-scorecard',
+      featured: true,
+      order: 17,
+      seo: {
+        title: 'Relationship Health Scorecard — How Healthy Is Your Relationship?',
+        description:
+          'A free 3-minute relationship health scorecard that rates your connection across communication, trust, intimacy, and respect — and shows what to nurture next.',
+        overview:
+          'Healthy relationships are not the ones without problems — they are the ones with the skills to work through them. This scorecard rates your relationship across communication, trust, intimacy, and mutual respect, then highlights what is strong and where a little attention would go furthest.',
+        whoFor:
+          'Anyone in a relationship who wants an honest, structured read on how things are going — whether to reassure yourself, spot early strain, or find a constructive place to start a conversation with your partner.',
+        whatYouLearn: [
+          'Your overall relationship health score across four key dimensions',
+          'How you rate on communication, trust, intimacy, and respect',
+          'The strengths worth protecting in your relationship',
+          'The one area where focused attention would help most',
+        ],
+        sampleQuestions: [
+          'When you disagree, do conversations tend to move toward resolution or escalate?',
+          'How comfortable do you feel bringing up something that is bothering you?',
+          'Do you feel genuinely heard by your partner most of the time?',
+          'How connected do you feel to each other day to day?',
+        ],
+        howItWorks:
+          'You answer a short set of questions about how you and your partner relate day to day. Your answers are scored across four pillars of relationship health, and your result gives an overall rating with a breakdown of strengths and the area to focus on next. It takes about three minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What makes a relationship "healthy"?',
+            a: 'Relationship researchers point to skills more than the absence of conflict — how partners communicate, repair after disagreements, maintain trust and respect, and stay emotionally connected. This scorecard reflects those dimensions rather than judging your relationship as good or bad.',
+          },
+          {
+            q: 'Should my partner take it too?',
+            a: 'It can help. Taking it separately and comparing results often surfaces useful differences in how each of you experiences the relationship, which can open a constructive conversation.',
+          },
+          {
+            q: 'How long does the scorecard take, and is it free?',
+            a: 'About three minutes, and it is free with a personalized breakdown — no signup required to start.',
+          },
+        ],
+      },
+    },
+    {
       publicToken: 'dtvby4ca',
       slug: 'attachment-style',
       featured: true,
