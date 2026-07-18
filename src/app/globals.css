@@ -12,8 +12,29 @@
   color-scheme: light dark;
 }
 
+/*
+ * 锚点滚动修正：站点头部 sticky 定位，直接跳到 #featured / #categories 等锚点时
+ * 标题会被头部盖住 → 用 scroll-padding-top 预留头部高度（约 4rem）的偏移。
+ */
 html {
-  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+/* 平滑滚动仅在用户未开启「减少动态效果」时启用（无障碍） */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*
+ * 键盘可见焦点：鼠标点击不显示轮廓，Tab 键导航时给统一的焦点环，
+ * 提升可访问性与整体精致度。var 缺失时回退到 currentColor，绝不失效。
+ */
+:focus-visible {
+  outline: 2px solid var(--color-primary, currentColor);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
 }
 
 /* 落地页正文长文样式（测评介绍 / FAQ 等） */
