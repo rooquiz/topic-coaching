@@ -98,14 +98,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <span>{category.name}</span>
           </nav>
           <h1 className="text-3xl font-bold sm:text-4xl">{category.title}</h1>
-          <p className="mt-4 max-w-2xl text-lg text-base-content/70">{category.heroCopy ?? category.description}</p>
+          <p className="mt-4 text-lg text-base-content/70">{category.heroCopy ?? category.description}</p>
         </div>
       </section>
 
       {/* GEO 正文：分类介绍长文（信息型内容，供答案引擎摘录） */}
       {intro.length ? (
         <section className="mx-auto max-w-6xl px-4 pt-16">
-          <div className="max-w-3xl space-y-4 text-base-content/80">
+          <div className="space-y-4 text-base-content/80">
             {intro.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
@@ -135,7 +135,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {catFaq.length ? (
         <section className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="mb-5 text-2xl font-bold">Frequently asked questions</h2>
-          <div className="join join-vertical w-full max-w-3xl">
+          <div className="join join-vertical w-full">
             {catFaq.map((entry, index) => (
               <div key={index} className="collapse join-item collapse-arrow border border-base-300 bg-base-100">
                 <input type="checkbox" defaultChecked={index === 0} />
