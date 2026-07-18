@@ -7,21 +7,30 @@ export function QuizCard({ item }: { item: HydratedQuiz }) {
   return (
     <Link
       href={item.href}
-      className="card overflow-hidden border border-base-300 bg-base-100 transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
+      className="group card overflow-hidden border border-base-300 bg-base-100 transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
     >
-      <figure className="aspect-[16/9] bg-base-200">
+      <figure className="aspect-[16/9] overflow-hidden bg-base-200">
         {item.coverUrl ? (
           // 封面来自任意主机，用原生 <img> 规避 next/image 白名单
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={item.coverUrl} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
+          <img
+            src={item.coverUrl}
+            alt={item.title}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-4xl">🧭</div>
+          <div aria-hidden className="flex h-full w-full items-center justify-center text-4xl">
+            🧭
+          </div>
         )}
       </figure>
       <div className="card-body gap-2 p-5">
         <h3 className="card-title text-base leading-snug">{item.title}</h3>
         {item.description ? <p className="line-clamp-2 text-sm text-base-content/70">{item.description}</p> : null}
-        <span className="mt-1 text-sm font-medium text-primary">Take the quiz →</span>
+        <span className="mt-1 text-sm font-medium text-primary">
+          Take the quiz <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+        </span>
       </div>
     </Link>
   )

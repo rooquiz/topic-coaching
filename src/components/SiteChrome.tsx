@@ -12,7 +12,9 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-base-300 bg-base-100/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <span className="text-xl">{site.brandEmoji}</span>
+          <span aria-hidden className="text-xl">
+            {site.brandEmoji}
+          </span>
           <span>{site.name}</span>
         </Link>
         <div className="flex items-center gap-3">
@@ -40,7 +42,9 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-12 md:grid-cols-4">
         <div className="col-span-2 md:col-span-1">
           <div className="mb-2 flex items-center gap-2 font-bold">
-            <span className="text-xl">{site.brandEmoji}</span>
+            <span aria-hidden className="text-xl">
+              {site.brandEmoji}
+            </span>
             <span>{site.name}</span>
           </div>
           <p className="text-sm text-base-content/70">{site.footerBlurb}</p>
