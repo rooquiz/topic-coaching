@@ -82,7 +82,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       <section className="bg-gradient-to-b from-primary/10 to-base-100">
         <div className="mx-auto max-w-5xl px-4 py-16">
-          <nav className="mb-3 text-sm text-base-content/60">
+          <nav className="mb-3 text-sm text-base-content/70">
             <Link href="/" className="hover:text-primary">
               Home
             </Link>{' '}
@@ -127,7 +127,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         {quizzes.length ? (
           <QuizGrid items={quizzes} />
         ) : (
-          <p className="text-base-content/60">No quizzes here yet — check back soon.</p>
+          <p className="text-base-content/70">No quizzes here yet — check back soon.</p>
         )}
       </section>
 

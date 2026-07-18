@@ -28,6 +28,21 @@ html {
 }
 
 /*
+ * 无障碍：用户开启「减少动态效果」时，全站关掉过渡/动画（卡片抬升、
+ * collapse 箭头、hover 位移等），避免前庭不适；数值不清零以防交互态丢失。
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
  * 键盘可见焦点：鼠标点击不显示轮廓，Tab 键导航时给统一的焦点环，
  * 提升可访问性与整体精致度。var 缺失时回退到 currentColor，绝不失效。
  */
@@ -37,8 +52,3 @@ html {
   border-radius: 0.25rem;
 }
 
-/* 落地页正文长文样式（测评介绍 / FAQ 等） */
-.prose-copy p {
-  margin-block: 0.75rem;
-  line-height: 1.75;
-}

@@ -79,7 +79,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-base-300 py-4 text-center text-xs text-base-content/60">
+      <div className="border-t border-base-300 py-4 text-center text-xs text-base-content/70">
         © {site.name} — Coaching quizzes
       </div>
     </footer>

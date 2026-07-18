@@ -83,7 +83,7 @@ export default async function QuizPage({ params }: QuizPageProps) {
 
       <div className="mx-auto max-w-3xl px-4 py-10">
         {/* Breadcrumb */}
-        <nav className="mb-4 text-sm text-base-content/60">
+        <nav className="mb-4 text-sm text-base-content/70">
           <Link href="/" className="hover:text-primary">
             Home
           </Link>
