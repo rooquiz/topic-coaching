@@ -187,7 +187,7 @@ export default async function QuizPage({ params }: QuizPageProps) {
       {/* Related */}
       {related.length ? (
         <section className="bg-base-200">
-          <div className="mx-auto max-w-6xl px-4 py-14">
+          <div className="mx-auto max-w-6xl px-4 py-16">
             <h2 className="mb-8 text-2xl font-bold">More {primaryCategory?.name ?? 'coaching'} quizzes</h2>
             <QuizGrid items={related} />
           </div>

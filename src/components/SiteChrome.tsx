@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { site } from '@config'
 
+import { MobileNav } from '@/components/MobileNav'
 import { signupUrl } from '@/lib/cairo'
 import { getHubs } from '@/lib/content'
 
@@ -14,16 +15,19 @@ export function SiteHeader() {
           <span className="text-xl">{site.brandEmoji}</span>
           <span>{site.name}</span>
         </Link>
-        <nav className="hidden items-center gap-5 text-sm md:flex">
-          {categories.map((category) => (
-            <Link key={category.slug} href={`/c/${category.slug}`} className="hover:text-primary">
-              {category.name}
-            </Link>
-          ))}
-        </nav>
-        <a href={signupUrl('header')} className="btn btn-primary btn-sm" target="_blank" rel="noopener">
-          {site.cta.navButton}
-        </a>
+        <div className="flex items-center gap-3">
+          <nav className="hidden items-center gap-5 text-sm md:flex">
+            {categories.map((category) => (
+              <Link key={category.slug} href={`/c/${category.slug}`} className="hover:text-primary">
+                {category.name}
+              </Link>
+            ))}
+          </nav>
+          <a href={signupUrl('header')} className="btn btn-primary btn-sm" target="_blank" rel="noopener">
+            {site.cta.navButton}
+          </a>
+          <MobileNav items={categories.map((category) => ({ slug: category.slug, name: category.name }))} />
+        </div>
       </div>
     </header>
   )

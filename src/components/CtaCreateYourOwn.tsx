@@ -28,7 +28,7 @@ export function CtaCreateYourOwn({
 
   return (
     <section className="bg-primary text-primary-content">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-14 text-center">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-16 text-center">
         <h2 className="text-2xl font-bold sm:text-3xl">{site.cta.band.heading}</h2>
         <p className="max-w-2xl text-primary-content/80">{site.cta.band.body}</p>
         <a href={href} className="btn btn-lg bg-base-100 text-primary hover:bg-base-200" target="_blank" rel="noopener">
