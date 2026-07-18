@@ -81,7 +81,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {catFaq.length ? <JsonLd data={faqJsonLd(catFaq)} /> : null}
 
       <section className="bg-gradient-to-b from-primary/10 to-base-100">
-        <div className="mx-auto max-w-5xl px-4 py-16">
+        <div className="mx-auto max-w-6xl px-4 py-16">
           <nav className="mb-3 text-sm text-base-content/70">
             <Link href="/" className="hover:text-primary">
               Home
@@ -104,8 +104,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* GEO 正文：分类介绍长文（信息型内容，供答案引擎摘录） */}
       {intro.length ? (
-        <section className="mx-auto max-w-3xl px-4 pt-14">
-          <div className="space-y-4 text-base-content/80">
+        <section className="mx-auto max-w-6xl px-4 pt-16">
+          <div className="max-w-3xl space-y-4 text-base-content/80">
             {intro.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
@@ -115,14 +115,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* Hub 页：先展示旗下分类，供用户下钻 */}
       {hub && children.length ? (
-        <section className="mx-auto max-w-6xl px-4 pt-14">
+        <section className="mx-auto max-w-6xl px-4 pt-16">
           <h2 className="mb-2 text-2xl font-bold">Coaching areas</h2>
           <p className="mb-8 text-base-content/70">Explore a focus within {category.name}.</p>
           <CategoryGrid categories={children} />
         </section>
       ) : null}
 
-      <section className="mx-auto max-w-6xl px-4 py-14">
+      <section className="mx-auto max-w-6xl px-4 py-16">
         {hub && children.length ? <h2 className="mb-8 text-2xl font-bold">Popular quizzes</h2> : null}
         {quizzes.length ? (
           <QuizGrid items={quizzes} />
@@ -133,9 +133,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* GEO：分类级 FAQ（FAQPage 结构化数据已在顶部注入） */}
       {catFaq.length ? (
-        <section className="mx-auto max-w-3xl px-4 py-14">
+        <section className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="mb-5 text-2xl font-bold">Frequently asked questions</h2>
-          <div className="join join-vertical w-full">
+          <div className="join join-vertical w-full max-w-3xl">
             {catFaq.map((entry, index) => (
               <div key={index} className="collapse join-item collapse-arrow border border-base-300 bg-base-100">
                 <input type="checkbox" defaultChecked={index === 0} />
@@ -150,7 +150,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       ) : null}
 
       <section className="bg-base-200">
-        <div className="mx-auto max-w-6xl px-4 py-14">
+        <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="mb-8 text-2xl font-bold">{relatedHeading}</h2>
           <CategoryGrid categories={relatedCategories} />
         </div>
