@@ -177,5 +177,48 @@ export const lifeCoaching: CategoryFile = {
         ],
       },
     },
+    {
+      publicToken: '3k53mxxu',
+      slug: 'learning-style-vark',
+      order: 5,
+      alsoIn: ['learning-coaching'],
+      seo: {
+        title: 'Learning Style Quiz (VARK) — Discover How You Learn Best',
+        description:
+          'A free 10-question learning style quiz based on the VARK model. Find whether you learn best visually, by listening, by reading and writing, or by doing — with study tips matched to your result.',
+        overview:
+          'Knowing how you learn best turns study from a slog into something that sticks. Based on the VARK model — Visual, Auditory, Reading/Writing, and Kinesthetic — this quiz reads how you naturally take in new information from everyday situations and returns your dominant learning style plus concrete study tips tailored to how your brain absorbs information.',
+        whoFor:
+          'Students, self-learners, and anyone picking up a new skill who wants study methods that fit how they actually learn instead of generic advice that never sticks.',
+        whatYouLearn: [
+          'Your dominant VARK learning style: Visual, Auditory, Reading/Writing, or Kinesthetic',
+          'How you most naturally absorb and remember new information',
+          'Study and note-taking methods matched to your style',
+          'Why some past study habits worked better than others',
+        ],
+        sampleQuestions: [
+          'When you learn something completely new, what helps most — diagrams, listening, reading notes, or trying it hands-on?',
+          'You are assembling new furniture: do you study the picture diagrams, ask someone to talk you through it, read the manual, or just start fitting pieces together?',
+          'Your ideal way to study for a test is mind maps, rewriting notes, discussing aloud, or practice problems and flashcards?',
+          'You truly understand a new concept when you see it illustrated, hear it discussed, read about it in depth, or practice it?',
+        ],
+        howItWorks:
+          'You answer 10 everyday questions about how you prefer to take in and recall information. Your answers are scored across the four VARK channels, and your result names your dominant learning style with study strategies suited to it. It takes about three minutes, is free, and needs no signup to start.',
+        faq: [
+          {
+            q: 'What is the VARK learning style model?',
+            a: 'VARK is a framework developed by educator Neil Fleming that groups learning preferences into four channels — Visual, Auditory, Reading/Writing, and Kinesthetic. It describes how you prefer to take in information, and it is a popular starting point for choosing study methods that feel natural to you.',
+          },
+          {
+            q: 'Can I have more than one learning style?',
+            a: 'Yes. Many people are multimodal — comfortable across two or more channels. This quiz highlights your strongest preference, but the most effective studying often combines methods, such as pairing diagrams with hands-on practice.',
+          },
+          {
+            q: 'How long does the quiz take, and is it free?',
+            a: 'About three minutes for 10 questions, and it is free with a personalized result and study tips — no signup required to start.',
+          },
+        ],
+      },
+    },
   ],
 }

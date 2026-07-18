@@ -29,5 +29,8 @@ pnpm-debug.log*
 # vercel
 .vercel
 
+# local secrets (deploy key, known_hosts) — never commit
+.secrets/
+
 # typescript
 *.tsbuildinfo
