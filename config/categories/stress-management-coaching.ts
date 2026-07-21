@@ -34,6 +34,14 @@ export const stressManagementCoaching: CategoryFile = {
           'The triggers that hit you hardest',
           'What actually calms your particular type',
         ],
+        sampleQuestions: [
+          'When pressure builds, does your body speed up and get wired, or shut down and go flat?',
+          'Under stress, do you reach for control and action, connection with others, distraction, or withdrawal?',
+          'What tips you over the edge fastest — too many demands, uncertainty, conflict, or lack of time to yourself?',
+          'After a stressful day, what actually helps you reset: movement, talking it out, quiet alone time, or a clear plan?',
+        ],
+        howItWorks:
+          'You answer a short set of questions about how your mind and body react under pressure. Your answers are scored across common stress-response patterns, and your result names your stress type with what is driving it and the coping strategies that genuinely fit your nervous system. It takes about two minutes, is free, and needs no signup to start.',
         faq: [
           {
             q: 'Why do people respond to stress so differently?',
@@ -65,6 +73,14 @@ export const stressManagementCoaching: CategoryFile = {
           'Where the strain is greatest right now',
           'A first step to relieve the pressure',
         ],
+        sampleQuestions: [
+          'How often do you wake up already feeling drained before the day has started?',
+          'Have you started to feel cynical, detached, or numb about work or responsibilities that used to matter?',
+          'How well are you holding boundaries between work and the rest of your life right now?',
+          'When did you last have real recovery time that actually left you feeling restored?',
+        ],
+        howItWorks:
+          'You rate a series of statements about your energy, mindset, boundaries, and recovery over recent weeks. Your answers are scored into an overall burnout-risk level, and your result shows where the strain is greatest along with a practical first step to relieve the pressure. It takes about two minutes, is free, and needs no signup to start.',
         faq: [
           {
             q: 'What is burnout?',

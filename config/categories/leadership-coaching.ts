@@ -35,6 +35,14 @@ export const leadershipCoaching: CategoryFile = {
           'The blind spots that can trip you up',
           'How to lead more effectively from your natural style',
         ],
+        sampleQuestions: [
+          'When your team hits a setback, is your first instinct to rally people around a vision, coach individuals through it, open it up for group input, or take charge and give clear orders?',
+          'How do you most naturally motivate people — with an inspiring picture of the future, one-on-one development, shared ownership of decisions, or clear standards and accountability?',
+          'When you delegate, do you hand over the outcome and step back, or stay close to guide the how?',
+          'In a fast-moving crisis, do you slow down to build consensus or move decisively and explain later?',
+        ],
+        howItWorks:
+          'You answer a short set of questions about how you set direction, make decisions, and work with people. Your answers are scored across the core leadership archetypes, and your result names your dominant style with its signature strengths, blind spots, and how to flex it to the situation. It takes about two minutes, is free, and needs no signup to start.',
         faq: [
           {
             q: 'What is a leadership style?',
@@ -66,6 +74,14 @@ export const leadershipCoaching: CategoryFile = {
           'Your strongest pillar to lean on',
           'Your weakest pillar to develop next',
         ],
+        sampleQuestions: [
+          'How consistently do you set a clear direction your team actually understands and believes in?',
+          'When you communicate expectations, how often do people leave knowing exactly what to do next?',
+          'How much do you empower others to own decisions versus keeping the calls to yourself?',
+          'When a hard decision comes up, how confidently and promptly do you make it?',
+        ],
+        howItWorks:
+          'You rate a series of statements about your day-to-day leadership habits. Your answers are scored across four pillars — vision, communication, empowering others, and decision-making — and your result gives an overall score plus your strongest and weakest pillar so you know exactly where to focus. It takes about two minutes, is free, and needs no signup to start.',
         faq: [
           {
             q: 'Can leadership really be measured?',
