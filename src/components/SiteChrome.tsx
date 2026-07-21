@@ -4,10 +4,23 @@ import { site } from '@config'
 
 import { MobileNav } from '@/components/MobileNav'
 import { signupUrl } from '@/lib/cairo'
-import { getHubs } from '@/lib/content'
+import { getChildCategories, getHubs } from '@/lib/content'
+
+/** 顶层 Hub + 其已上线的子分类（niche），供页头下拉菜单与移动端手风琴共用 */
+function getNavTree() {
+  return getHubs().map((hub) => ({
+    slug: hub.slug,
+    name: hub.name,
+    children: getChildCategories(hub.slug).map((child) => ({
+      slug: child.slug,
+      name: child.name,
+      emoji: child.emoji ?? null,
+    })),
+  }))
+}
 
 export function SiteHeader() {
-  const categories = getHubs()
+  const hubs = getNavTree()
   return (
     <header className="sticky top-0 z-40 border-b border-base-300 bg-base-100/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
@@ -18,17 +31,63 @@ export function SiteHeader() {
           <span>{site.name}</span>
         </Link>
         <div className="flex items-center gap-3">
-          <nav className="hidden items-center gap-5 text-sm md:flex">
-            {categories.map((category) => (
-              <Link key={category.slug} href={`/c/${category.slug}`} className="hover:text-primary">
-                {category.name}
-              </Link>
-            ))}
+          <nav className="hidden items-center gap-1 text-sm md:flex">
+            {hubs.map((hub) =>
+              hub.children.length ? (
+                <div key={hub.slug} className="group relative">
+                  <Link
+                    href={`/c/${hub.slug}`}
+                    className="flex items-center gap-1 rounded-lg px-3 py-2 hover:bg-base-200 hover:text-primary"
+                  >
+                    {hub.name}
+                    <svg
+                      aria-hidden
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+                    </svg>
+                  </Link>
+                  {/* CSS-only 下拉：pt-2 让触发器与面板之间无缝，鼠标滑入不闪断 */}
+                  <div className="invisible absolute left-0 top-full z-50 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <ul className="min-w-56 rounded-xl border border-base-300 bg-base-100 p-2 shadow-lg">
+                      {hub.children.map((child) => (
+                        <li key={child.slug}>
+                          <Link
+                            href={`/c/${child.slug}`}
+                            className="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-base-200 hover:text-primary"
+                          >
+                            {child.emoji ? (
+                              <span aria-hidden className="text-base">
+                                {child.emoji}
+                              </span>
+                            ) : null}
+                            <span>{child.name}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={hub.slug}
+                  href={`/c/${hub.slug}`}
+                  className="rounded-lg px-3 py-2 hover:bg-base-200 hover:text-primary"
+                >
+                  {hub.name}
+                </Link>
+              ),
+            )}
           </nav>
           <a href={signupUrl('header')} className="btn btn-primary btn-sm" target="_blank" rel="noopener">
             {site.cta.navButton}
           </a>
-          <MobileNav items={categories.map((category) => ({ slug: category.slug, name: category.name }))} />
+          <MobileNav items={hubs} />
         </div>
       </div>
     </header>
