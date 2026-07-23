@@ -165,5 +165,47 @@ export const fitnessCoaching: CategoryFile = {
         ],
       },
     },
+    {
+      publicToken: 'dcwsz98v',
+      slug: 'fitness-reset-scorecard',
+      order: 4,
+      seo: {
+        title: "What's Holding Back Your Fitness Results? Free 5-Minute Scorecard",
+        description:
+          'Putting in the work but not seeing results? This free 5-minute scorecard finds which of your 4 fitness pillars — training, nutrition, recovery, and mindset — is stalling your progress, scores you out of 100, and shows what to fix first.',
+        overview:
+          'When results stall, the problem is rarely effort — it is usually one or two hidden pillars quietly dragging the rest down. This scorecard measures the four pillars that decide whether fitness results actually stick: Training Consistency, Nutrition, Recovery & Sleep, and Mindset & Accountability. You get a personalized score out of 100 and a radar chart showing exactly where your weakest link is, so you can fix the right thing first instead of just training harder everywhere. Research on behavior change backs this up: a review in the Journal of Clinical Medicine found accountability and support are among the strongest predictors of whether people sustain an exercise habit, while sleep-deprivation studies show that under 7 hours of sleep can blunt fat loss and muscle recovery even when training and diet are on point (sources below).',
+        whoFor:
+          'Anyone who trains but feels stuck — plateaued lifters, on-and-off exercisers, and busy people who put in effort without seeing the payoff and want to know which specific gap to close first.',
+        whatYouLearn: [
+          'Your overall fitness-results score out of 100',
+          'Which of your 4 pillars — training, nutrition, recovery, or mindset — is holding you back',
+          'A radar chart of where you are strong and where the gaps are',
+          'The single lowest pillar to fix first for the fastest breakthrough',
+        ],
+        sampleQuestions: [
+          'In a typical week, how many days do you do intentional exercise?',
+          'When life gets busy, what usually happens to your workouts?',
+          'Do you know roughly how much protein you eat in a day?',
+          'Do you have anyone keeping you accountable — a coach, partner, or group?',
+        ],
+        howItWorks:
+          'You answer 12 quick questions grouped into four fitness pillars — Training Consistency, Nutrition, Recovery & Sleep, and Mindset & Accountability. Each pillar is scored and combined into an overall rating out of 100, with a radar chart that highlights your weakest link and practical next steps focused there. It takes about five minutes, needs no equipment, is free, and requires no signup to start.',
+        faq: [
+          {
+            q: 'Why am I working out but not seeing results?',
+            a: 'Most stalled progress comes down to a weak link, not a lack of effort. If training is solid but nutrition, sleep, or consistency lags, that one pillar caps everything else. This scorecard pinpoints which pillar is dragging your results down so you can target it instead of just adding more workouts.',
+          },
+          {
+            q: 'What are the 4 fitness pillars this measures?',
+            a: 'Training Consistency (how reliably you train), Nutrition (whether your eating supports your goals), Recovery & Sleep (results are built while you rest), and Mindset & Accountability (clarity, resilience, and support). Balance across all four predicts lasting results far better than maxing out any single one.',
+          },
+          {
+            q: 'How long does the scorecard take, and is it free?',
+            a: 'About five minutes for the 12 questions, and it is free with a personalized score and radar chart — no signup required to start.',
+          },
+        ],
+      },
+    },
   ],
 }
